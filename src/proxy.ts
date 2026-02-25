@@ -1,29 +1,32 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const VALID_USER = process.env.BASIC_AUTH_USER ?? 'architect'
-const VALID_PASS = process.env.BASIC_AUTH_PASSWORD ?? 'e4vEkCy37L2ck0gRjIfXIw'
-
 export function proxy(request: NextRequest) {
-  const basicAuth = request.headers.get('authorization')
+  const VALID_USER = 'architect'
+  const VALID_PASS = 'e4vEkCy37L2ck0gRjIfXIw'
 
-  if (basicAuth && basicAuth.startsWith('Basic ')) {
-    const base64Credentials = basicAuth.slice(6)
-    const credentials = Buffer.from(base64Credentials, 'base64').toString('utf-8')
-    const colonIndex = credentials.indexOf(':')
-    if (colonIndex > -1) {
-      const username = credentials.substring(0, colonIndex)
-      const password = credentials.substring(colonIndex + 1)
+  const authHeader = request.headers.get('authorization')
 
-      if (username === VALID_USER && password === VALID_PASS) {
+  if (authHeader && authHeader.startsWith('Basic ')) {
+    try {
+      const encoded = authHeader.substring(6)
+      // Use atob for edge compat, then split on first colon only
+      const decoded = atob(encoded)
+      const sep = decoded.indexOf(':')
+      const user = decoded.slice(0, sep)
+      const pass = decoded.slice(sep + 1)
+
+      if (user === VALID_USER && pass === VALID_PASS) {
         return NextResponse.next()
       }
+    } catch {
+      // fall through
     }
   }
 
   return new NextResponse('Unauthorized', {
     status: 401,
     headers: {
-      'WWW-Authenticate': 'Basic realm="Automation Architects Preview", charset="UTF-8"',
+      'WWW-Authenticate': 'Basic realm="Automation Architects Preview"',
     },
   })
 }
