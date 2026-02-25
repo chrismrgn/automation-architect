@@ -1,17 +1,26 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+export const runtime = 'nodejs'
+
 export function proxy(request: NextRequest) {
   const basicAuth = request.headers.get('authorization')
 
+  const validUser = process.env.BASIC_AUTH_USER || 'architect'
+  const validPwd = process.env.BASIC_AUTH_PASSWORD || ''
+
   if (basicAuth) {
     const authValue = basicAuth.split(' ')[1]
-    const [user, pwd] = atob(authValue).split(':')
+    try {
+      const decoded = Buffer.from(authValue, 'base64').toString('utf-8')
+      const colonIndex = decoded.indexOf(':')
+      const user = decoded.substring(0, colonIndex)
+      const pwd = decoded.substring(colonIndex + 1)
 
-    const validUser = process.env.BASIC_AUTH_USER
-    const validPwd = process.env.BASIC_AUTH_PASSWORD
-
-    if (user === validUser && pwd === validPwd) {
-      return NextResponse.next()
+      if (user === validUser && pwd === validPwd && pwd !== '') {
+        return NextResponse.next()
+      }
+    } catch {
+      // fall through to 401
     }
   }
 
