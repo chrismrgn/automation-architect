@@ -1,7 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-export const runtime = 'nodejs'
-
 export function proxy(request: NextRequest) {
   const basicAuth = request.headers.get('authorization')
 
