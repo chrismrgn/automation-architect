@@ -1,31 +1,29 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+const VALID_USER = process.env.BASIC_AUTH_USER ?? 'architect'
+const VALID_PASS = process.env.BASIC_AUTH_PASSWORD ?? 'e4vEkCy37L2ck0gRjIfXIw'
+
 export function proxy(request: NextRequest) {
   const basicAuth = request.headers.get('authorization')
 
-  const validUser = process.env.BASIC_AUTH_USER || 'architect'
-  const validPwd = process.env.BASIC_AUTH_PASSWORD || ''
+  if (basicAuth && basicAuth.startsWith('Basic ')) {
+    const base64Credentials = basicAuth.slice(6)
+    const credentials = Buffer.from(base64Credentials, 'base64').toString('utf-8')
+    const colonIndex = credentials.indexOf(':')
+    if (colonIndex > -1) {
+      const username = credentials.substring(0, colonIndex)
+      const password = credentials.substring(colonIndex + 1)
 
-  if (basicAuth) {
-    const authValue = basicAuth.split(' ')[1]
-    try {
-      const decoded = Buffer.from(authValue, 'base64').toString('utf-8')
-      const colonIndex = decoded.indexOf(':')
-      const user = decoded.substring(0, colonIndex)
-      const pwd = decoded.substring(colonIndex + 1)
-
-      if (user === validUser && pwd === validPwd && pwd !== '') {
+      if (username === VALID_USER && password === VALID_PASS) {
         return NextResponse.next()
       }
-    } catch {
-      // fall through to 401
     }
   }
 
-  return new NextResponse('Authentication required', {
+  return new NextResponse('Unauthorized', {
     status: 401,
     headers: {
-      'WWW-Authenticate': 'Basic realm="Automation Architects Preview"',
+      'WWW-Authenticate': 'Basic realm="Automation Architects Preview", charset="UTF-8"',
     },
   })
 }
