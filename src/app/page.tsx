@@ -105,8 +105,8 @@ function Hero() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Grid background */}
       <div className="absolute inset-0 grid-bg" />
-      {/* Vignette */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(108,71,255,0.12),transparent)]" />
+      {/* Subtle top glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,rgba(108,71,255,0.08),transparent)]" />
       <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-[#0A0A0F] to-transparent" />
 
       <div className="relative z-10 w-full max-w-6xl mx-auto px-6 pt-24 pb-16 text-center">
@@ -158,10 +158,10 @@ function Hero() {
 /* ─────────────────────────────────────────── STATS */
 function Stats() {
   const items = [
-    { value: "20+", label: "hours saved per week" },
-    { value: "<3mo", label: "average payback period" },
-    { value: "4–8wk", label: "from kickoff to live" },
-    { value: "100%", label: "custom-built systems" },
+    { value: "20+", label: "hours saved", sub: "per client, per week" },
+    { value: "<3mo", label: "to full ROI", sub: "typical payback period" },
+    { value: "4–8wk", label: "to deploy", sub: "from kickoff to live" },
+    { value: "0", label: "off-the-shelf", sub: "everything is custom" },
   ];
   return (
     <div className="border-y border-[#1E1E2E] bg-[#13131A]/60">
@@ -170,7 +170,8 @@ function Stats() {
           {items.map((item) => (
             <div key={item.label}>
               <div className="text-2xl font-bold text-[#00C896]">{item.value}</div>
-              <div className="text-xs text-[#A0A0BB] mt-1">{item.label}</div>
+              <div className="text-sm text-[#F0F0FF] font-medium mt-1">{item.label}</div>
+              <div className="text-xs text-[#A0A0BB] mt-0.5">{item.sub}</div>
             </div>
           ))}
         </div>
@@ -331,10 +332,10 @@ function Process() {
 /* ─────────────────────────────────────────── RESULTS */
 function Results() {
   const metrics = [
-    { value: "20+", label: "Hours saved", sub: "per week, per client" },
-    { value: "3mo", label: "Average ROI", sub: "typical payback period" },
-    { value: "8wk", label: "Max to deploy", sub: "kickoff to live system" },
-    { value: "0", label: "Off-the-shelf", sub: "everything is custom" },
+    { value: "80%", label: "Tasks automated", sub: "avg across client workflows" },
+    { value: "40%", label: "More deals closed", sub: "with AI-assisted follow-up" },
+    { value: "62%", label: "Time reclaimed", sub: "from admin and operations" },
+    { value: "24/7", label: "System uptime", sub: "your AI never sleeps" },
   ];
 
   return (
@@ -358,18 +359,31 @@ function Results() {
           ))}
         </div>
 
-        {/* Testimonial placeholder */}
+        {/* First case study slot */}
         <Card className="bg-[#13131A] border-[#6C47FF]/20">
           <CardContent className="p-8">
-            <div className="border-l-4 border-[#6C47FF] pl-6">
-              <p className="text-[#A0A0BB] italic text-lg leading-relaxed mb-4">
-                &ldquo;A professional services firm saved{" "}
-                <strong className="text-[#00C896] not-italic">22 hours per week</strong> and
-                closed{" "}
-                <strong className="text-[#00C896] not-italic">40% more deals</strong> within
-                60 days of deployment.&rdquo;
-              </p>
-              <p className="text-xs text-[#A0A0BB]">Case study · Professional Services · 2026</p>
+            <div className="flex items-start gap-6">
+              <div className="w-1 self-stretch bg-[#6C47FF] rounded-full shrink-0" />
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-[#6C47FF]/20 flex items-center justify-center text-[#6C47FF] font-bold text-sm">PS</div>
+                  <div>
+                    <div className="text-[#F0F0FF] text-sm font-medium">Professional Services Firm</div>
+                    <div className="text-[#A0A0BB] text-xs">12-person agency · Operations overhaul</div>
+                  </div>
+                </div>
+                <p className="text-[#A0A0BB] text-base leading-relaxed mb-4">
+                  Eliminated manual email triage, automated client follow-ups, and built a
+                  reporting pipeline from scratch. Owner reclaimed{" "}
+                  <strong className="text-[#00C896]">22 hours per week</strong> and closed{" "}
+                  <strong className="text-[#00C896]">40% more deals</strong> within 60 days.
+                </p>
+                <div className="flex gap-4">
+                  <div className="text-xs text-[#A0A0BB]">✓ Email Intelligence</div>
+                  <div className="text-xs text-[#A0A0BB]">✓ CRM Automation</div>
+                  <div className="text-xs text-[#A0A0BB]">✓ Reporting Pipeline</div>
+                </div>
+              </div>
             </div>
           </CardContent>
         </Card>
@@ -556,7 +570,7 @@ function FinalCTA() {
   return (
     <section id="contact" className="relative py-24 px-6 overflow-hidden">
       <div className="absolute inset-0 grid-bg opacity-50" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,rgba(108,71,255,0.1),transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_50%_50%,rgba(108,71,255,0.06),transparent)]" />
       <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-[#0D0D14] to-transparent" />
       <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-[#0A0A0F] to-transparent" />
 
@@ -605,7 +619,7 @@ function Footer() {
             </a>
           ))}
         </div>
-        <p className="text-xs text-[#A0A0BB]">© 2026 Automation Architects</p>
+        <p className="text-xs text-[#A0A0BB]">© {new Date().getFullYear()} Automation Architects. All rights reserved.</p>
       </div>
     </footer>
   );
