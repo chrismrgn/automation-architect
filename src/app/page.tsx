@@ -46,7 +46,7 @@ function Nav() {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm text-[#8888AA] hover:text-[#F0F0FF] transition-colors"
+              className="text-sm text-[#A0A0BB] hover:text-[#F0F0FF] transition-colors"
             >
               {l.label}
             </a>
@@ -64,7 +64,7 @@ function Nav() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden text-[#8888AA] hover:text-[#F0F0FF]"
+          className="md:hidden text-[#A0A0BB] hover:text-[#F0F0FF]"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
@@ -79,7 +79,7 @@ function Nav() {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm text-[#8888AA] hover:text-[#F0F0FF] transition-colors"
+              className="text-sm text-[#A0A0BB] hover:text-[#F0F0FF] transition-colors"
               onClick={() => setMenuOpen(false)}
             >
               {l.label}
@@ -124,7 +124,7 @@ function Hero() {
           <span className="text-[#F0F0FF]">runs itself.</span>
         </h1>
 
-        <p className="text-lg md:text-xl text-[#8888AA] leading-relaxed max-w-2xl mx-auto mb-10">
+        <p className="text-lg md:text-xl text-[#A0A0BB] leading-relaxed max-w-2xl mx-auto mb-8">
           We build custom AI operating systems for growing businesses — so you can stop
           doing the work your business should be doing automatically.
         </p>
@@ -141,13 +141,13 @@ function Hero() {
           </Button>
           <a
             href="#process"
-            className="text-sm text-[#8888AA] hover:text-[#F0F0FF] transition-colors"
+            className="text-sm text-[#A0A0BB] hover:text-[#F0F0FF] transition-colors"
           >
             See how it works ↓
           </a>
         </div>
 
-        <p className="text-xs text-[#8888AA]">
+        <p className="text-xs text-[#A0A0BB]">
           No commitment · 30 minutes · Immediate value, guaranteed
         </p>
       </div>
@@ -170,7 +170,7 @@ function Stats() {
           {items.map((item) => (
             <div key={item.label}>
               <div className="text-2xl font-bold text-[#00C896]">{item.value}</div>
-              <div className="text-xs text-[#8888AA] mt-1">{item.label}</div>
+              <div className="text-xs text-[#A0A0BB] mt-1">{item.label}</div>
             </div>
           ))}
         </div>
@@ -200,17 +200,17 @@ function Problem() {
   ];
 
   return (
-    <section className="py-24 px-6">
+    <section className="py-16 px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-[#F0F0FF] leading-tight mb-5">
             You&apos;re running a business.
             <br />
-            <span className="text-[#8888AA] font-normal">
+            <span className="text-[#A0A0BB] font-normal">
               And doing jobs that shouldn&apos;t exist.
             </span>
           </h2>
-          <p className="text-[#8888AA] text-lg max-w-xl mx-auto leading-relaxed">
+          <p className="text-[#A0A0BB] text-lg max-w-xl mx-auto leading-relaxed">
             You started to build something. Instead, you&apos;re stuck in it. Every hour
             spent on admin is an hour not spent on growth.
           </p>
@@ -224,7 +224,7 @@ function Problem() {
                   {p.icon}
                 </div>
                 <h3 className="font-semibold text-[#F0F0FF] text-lg mb-2">{p.title}</h3>
-                <p className="text-[#8888AA] text-sm leading-relaxed">{p.desc}</p>
+                <p className="text-[#A0A0BB] text-sm leading-relaxed">{p.desc}</p>
               </CardContent>
             </Card>
           ))}
@@ -246,9 +246,9 @@ function Solution() {
   ];
 
   return (
-    <section id="services" className="py-24 px-6 bg-[#0D0D14]">
+    <section id="services" className="py-16 px-6 bg-[#0D0D14]">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <Badge
             variant="outline"
             className="mb-5 border-[#00D4FF]/30 bg-[#00D4FF]/10 text-[#00D4FF] text-xs"
@@ -260,7 +260,7 @@ function Solution() {
             <br />
             <span className="text-gradient">your business needs.</span>
           </h2>
-          <p className="text-[#8888AA] text-lg max-w-xl mx-auto leading-relaxed">
+          <p className="text-[#A0A0BB] text-lg max-w-xl mx-auto leading-relaxed">
             A full intelligent system — custom-built for how your business actually runs.
             Every workflow. Every integration. Every edge case.
           </p>
@@ -277,7 +277,7 @@ function Solution() {
                   {c.icon}
                 </div>
                 <h3 className="font-semibold text-[#F0F0FF] mb-1.5">{c.title}</h3>
-                <p className="text-[#8888AA] text-sm leading-relaxed">{c.desc}</p>
+                <p className="text-[#A0A0BB] text-sm leading-relaxed">{c.desc}</p>
               </CardContent>
             </Card>
           ))}
@@ -297,9 +297,9 @@ function Process() {
   ];
 
   return (
-    <section id="process" className="py-24 px-6">
+    <section id="process" className="py-16 px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-[#F0F0FF] leading-tight mb-5">
             From chaos to autopilot
             <br />
@@ -310,16 +310,16 @@ function Process() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {steps.map((s, i) => (
             <div key={s.n} className="relative">
-              {/* Connector line */}
+              {/* Connector line between steps */}
               {i < steps.length - 1 && (
-                <div className="hidden md:block absolute top-7 left-[3.5rem] right-0 h-px bg-gradient-to-r from-[#6C47FF]/30 to-transparent" />
+                <div className="hidden md:block absolute top-7 left-14 right-[-1rem] h-px bg-[#6C47FF]/20" />
               )}
               <div className="w-14 h-14 rounded-2xl bg-[#6C47FF]/10 border border-[#6C47FF]/25 flex items-center justify-center text-[#6C47FF] font-bold text-lg mb-5">
                 {s.n}
               </div>
               <div className="text-xs text-[#00D4FF] font-medium mb-1.5">{s.time}</div>
               <h3 className="font-semibold text-[#F0F0FF] text-lg mb-2">{s.title}</h3>
-              <p className="text-[#8888AA] text-sm leading-relaxed">{s.desc}</p>
+              <p className="text-[#A0A0BB] text-sm leading-relaxed">{s.desc}</p>
             </div>
           ))}
         </div>
@@ -338,21 +338,21 @@ function Results() {
   ];
 
   return (
-    <section id="results" className="py-24 px-6 bg-[#0D0D14]">
+    <section id="results" className="py-16 px-6 bg-[#0D0D14]">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-[#F0F0FF] mb-5">
             The numbers that matter.
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-8">
           {metrics.map((m) => (
             <Card key={m.label} className="bg-[#13131A] border-[#1E1E2E] text-center">
               <CardContent className="p-8">
                 <div className="text-4xl font-bold text-[#00C896] mb-1">{m.value}</div>
                 <div className="text-sm font-medium text-[#F0F0FF]">{m.label}</div>
-                <div className="text-xs text-[#8888AA] mt-1">{m.sub}</div>
+                <div className="text-xs text-[#A0A0BB] mt-1">{m.sub}</div>
               </CardContent>
             </Card>
           ))}
@@ -362,14 +362,14 @@ function Results() {
         <Card className="bg-[#13131A] border-[#6C47FF]/20">
           <CardContent className="p-8">
             <div className="border-l-4 border-[#6C47FF] pl-6">
-              <p className="text-[#8888AA] italic text-lg leading-relaxed mb-4">
+              <p className="text-[#A0A0BB] italic text-lg leading-relaxed mb-4">
                 &ldquo;A professional services firm saved{" "}
                 <strong className="text-[#00C896] not-italic">22 hours per week</strong> and
                 closed{" "}
                 <strong className="text-[#00C896] not-italic">40% more deals</strong> within
                 60 days of deployment.&rdquo;
               </p>
-              <p className="text-xs text-[#8888AA]">Case study · Professional Services · 2026</p>
+              <p className="text-xs text-[#A0A0BB]">Case study · Professional Services · 2026</p>
             </div>
           </CardContent>
         </Card>
@@ -395,9 +395,9 @@ function ICP() {
   ];
 
   return (
-    <section className="py-24 px-6">
+    <section className="py-16 px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-[#F0F0FF] leading-tight mb-5">
             Built for businesses
             <br />
@@ -415,7 +415,7 @@ function ICP() {
                 {forYou.map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <CheckCircle className="h-4 w-4 text-[#00C896] mt-0.5 shrink-0" />
-                    <span className="text-[#8888AA] text-sm leading-relaxed">{item}</span>
+                    <span className="text-[#A0A0BB] text-sm leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -424,14 +424,14 @@ function ICP() {
 
           <Card className="bg-[#13131A] border-[#1E1E2E]">
             <CardContent className="p-8">
-              <h3 className="font-semibold text-[#8888AA] text-lg mb-6 flex items-center gap-2">
+              <h3 className="font-semibold text-[#A0A0BB] text-lg mb-6 flex items-center gap-2">
                 <XCircle className="h-5 w-5" /> This isn&apos;t for you if…
               </h3>
               <ul className="space-y-3">
                 {notForYou.map((item) => (
                   <li key={item} className="flex items-start gap-3">
-                    <XCircle className="h-4 w-4 text-[#8888AA]/40 mt-0.5 shrink-0" />
-                    <span className="text-[#8888AA] text-sm leading-relaxed">{item}</span>
+                    <XCircle className="h-4 w-4 text-[#A0A0BB]/40 mt-0.5 shrink-0" />
+                    <span className="text-[#A0A0BB] text-sm leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -476,7 +476,7 @@ function Pricing() {
   ];
 
   return (
-    <section id="pricing" className="py-24 px-6 bg-[#0D0D14]">
+    <section id="pricing" className="py-16 px-6 bg-[#0D0D14]">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-6">
           <h2 className="text-3xl md:text-4xl font-bold text-[#F0F0FF] leading-tight mb-5">
@@ -484,7 +484,7 @@ function Pricing() {
             <br />
             <span className="text-[#6C47FF]">Less than hiring.</span>
           </h2>
-          <p className="text-[#8888AA] text-lg max-w-xl mx-auto leading-relaxed">
+          <p className="text-[#A0A0BB] text-lg max-w-xl mx-auto leading-relaxed">
             A full-time ops hire costs $60–80K/year — and still can&apos;t match what a
             well-built AI OS does 24/7.
           </p>
@@ -509,23 +509,23 @@ function Pricing() {
               )}
               <CardContent className="p-8 flex flex-col flex-1">
                 <div className="mb-6">
-                  <p className="text-xs text-[#8888AA] font-medium uppercase tracking-wider mb-3">
+                  <p className="text-xs text-[#A0A0BB] font-medium uppercase tracking-wider mb-3">
                     {p.name}
                   </p>
                   <div className="flex items-baseline gap-1 mb-2">
                     <span className="text-3xl font-bold text-[#F0F0FF]">{p.price}</span>
                     {p.period && (
-                      <span className="text-[#8888AA] text-sm">{p.period}</span>
+                      <span className="text-[#A0A0BB] text-sm">{p.period}</span>
                     )}
                   </div>
-                  <p className="text-[#8888AA] text-sm">{p.desc}</p>
+                  <p className="text-[#A0A0BB] text-sm">{p.desc}</p>
                 </div>
 
                 <ul className="space-y-2.5 flex-1 mb-8">
                   {p.features.map((f) => (
                     <li key={f} className="flex items-start gap-2.5">
                       <CheckCircle className="h-4 w-4 text-[#00C896] mt-0.5 shrink-0" />
-                      <span className="text-[#8888AA] text-sm">{f}</span>
+                      <span className="text-[#A0A0BB] text-sm">{f}</span>
                     </li>
                   ))}
                 </ul>
@@ -554,7 +554,7 @@ function Pricing() {
 /* ─────────────────────────────────────────── CTA */
 function FinalCTA() {
   return (
-    <section id="contact" className="relative py-32 px-6 overflow-hidden">
+    <section id="contact" className="relative py-24 px-6 overflow-hidden">
       <div className="absolute inset-0 grid-bg opacity-50" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,rgba(108,71,255,0.1),transparent)]" />
       <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-[#0D0D14] to-transparent" />
@@ -566,7 +566,7 @@ function FinalCTA() {
           <span className="text-gradient">20 extra hours</span>
           <span className="text-[#F0F0FF]"> a week?</span>
         </h2>
-        <p className="text-[#8888AA] text-lg leading-relaxed max-w-xl mx-auto mb-10">
+        <p className="text-[#A0A0BB] text-lg leading-relaxed max-w-xl mx-auto mb-8">
           Book a free 30-minute AI Audit. We&apos;ll map out exactly what&apos;s automatable
           in your business — no pitch, no pressure, just clarity on what&apos;s possible.
         </p>
@@ -579,7 +579,7 @@ function FinalCTA() {
             Book Your Free AI Audit <ArrowRight className="ml-2 h-5 w-5" />
           </a>
         </Button>
-        <p className="text-xs text-[#8888AA] mt-5">
+        <p className="text-xs text-[#A0A0BB] mt-5">
           No commitment · 30 minutes · Immediate value, guaranteed
         </p>
       </div>
@@ -596,16 +596,16 @@ function Footer() {
           <p className="font-bold text-[#F0F0FF] text-lg">
             Automation<span className="text-[#6C47FF]">Architects</span>
           </p>
-          <p className="text-[#8888AA] text-sm mt-1">Your business, on autopilot.</p>
+          <p className="text-[#A0A0BB] text-sm mt-1">Your business, on autopilot.</p>
         </div>
-        <div className="flex gap-6 text-sm text-[#8888AA]">
+        <div className="flex gap-6 text-sm text-[#A0A0BB]">
           {["#services", "#process", "#results", "#pricing"].map((href) => (
             <a key={href} href={href} className="hover:text-[#F0F0FF] transition-colors capitalize">
               {href.replace("#", "")}
             </a>
           ))}
         </div>
-        <p className="text-xs text-[#8888AA]">© 2026 Automation Architects</p>
+        <p className="text-xs text-[#A0A0BB]">© 2026 Automation Architects</p>
       </div>
     </footer>
   );

@@ -27,7 +27,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body>{children}</body>
+      <body>
+        <style>{`html { scroll-padding-top: 80px; }`}</style>
+        {children}
+      </body>
     </html>
   );
 }
