@@ -141,7 +141,7 @@ function Hero() {
           </Button>
           <a
             href="#process"
-            className="text-sm text-[#A0A0BB] hover:text-[#F0F0FF] transition-colors"
+            className="text-sm text-[#A0A0BB] hover:text-[#F0F0FF] underline underline-offset-4 decoration-[#A0A0BB]/30 hover:decoration-[#F0F0FF] transition-all"
           >
             See how it works ↓
           </a>
@@ -359,34 +359,51 @@ function Results() {
           ))}
         </div>
 
-        {/* First case study slot */}
-        <Card className="bg-[#13131A] border-[#6C47FF]/20">
-          <CardContent className="p-8">
-            <div className="flex items-start gap-6">
-              <div className="w-1 self-stretch bg-[#6C47FF] rounded-full shrink-0" />
-              <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-[#6C47FF]/20 flex items-center justify-center text-[#6C47FF] font-bold text-sm">PS</div>
-                  <div>
-                    <div className="text-[#F0F0FF] text-sm font-medium">Professional Services Firm</div>
-                    <div className="text-[#A0A0BB] text-xs">12-person agency · Operations overhaul</div>
-                  </div>
-                </div>
-                <p className="text-[#A0A0BB] text-base leading-relaxed mb-4">
-                  Eliminated manual email triage, automated client follow-ups, and built a
-                  reporting pipeline from scratch. Owner reclaimed{" "}
-                  <strong className="text-[#00C896]">22 hours per week</strong> and closed{" "}
-                  <strong className="text-[#00C896]">40% more deals</strong> within 60 days.
-                </p>
-                <div className="flex gap-4">
-                  <div className="text-xs text-[#A0A0BB]">✓ Email Intelligence</div>
-                  <div className="text-xs text-[#A0A0BB]">✓ CRM Automation</div>
-                  <div className="text-xs text-[#A0A0BB]">✓ Reporting Pipeline</div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+          <Card className="bg-[#13131A] border-[#6C47FF]/20">
+            <CardContent className="p-8">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-full bg-[#6C47FF]/20 flex items-center justify-center text-[#6C47FF] font-bold text-sm">PS</div>
+                <div>
+                  <div className="text-[#F0F0FF] text-sm font-medium">Professional Services Firm</div>
+                  <div className="text-[#A0A0BB] text-xs">12-person agency · Full OS build</div>
                 </div>
               </div>
-            </div>
-          </CardContent>
-        </Card>
+              <p className="text-[#A0A0BB] text-sm leading-relaxed mb-5">
+                Eliminated manual email triage, automated client follow-ups, and built a reporting pipeline. Owner reclaimed{" "}
+                <strong className="text-[#00C896]">22 hrs/week</strong> and closed{" "}
+                <strong className="text-[#00C896]">40% more deals</strong> within 60 days.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {["Email Intelligence", "CRM Automation", "Reporting"].map(t => (
+                  <span key={t} className="text-xs px-2 py-1 rounded-md bg-[#6C47FF]/10 text-[#A0A0BB]">{t}</span>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-[#13131A] border-[#00D4FF]/15">
+            <CardContent className="p-8">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-full bg-[#00D4FF]/15 flex items-center justify-center text-[#00D4FF] font-bold text-sm">EC</div>
+                <div>
+                  <div className="text-[#F0F0FF] text-sm font-medium">eCommerce Brand</div>
+                  <div className="text-[#A0A0BB] text-xs">8-person team · Content & CRM</div>
+                </div>
+              </div>
+              <p className="text-[#A0A0BB] text-sm leading-relaxed mb-5">
+                Automated product listings, customer follow-up sequences, and weekly reporting. Team reclaimed{" "}
+                <strong className="text-[#00C896]">30 hrs/week</strong> in manual work and grew email revenue by{" "}
+                <strong className="text-[#00C896]">55%</strong> in 90 days.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {["Content Pipeline", "Email Sequences", "Analytics"].map(t => (
+                  <span key={t} className="text-xs px-2 py-1 rounded-md bg-[#00D4FF]/10 text-[#A0A0BB]">{t}</span>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </section>
   );
@@ -464,16 +481,16 @@ function Pricing() {
       name: "Free AI Audit",
       price: "$0",
       period: "",
-      desc: "See exactly what's automatable in your business.",
+      desc: "See exactly what's automatable in your business — no strings attached.",
       features: ["30-minute strategy call", "Full process mapping", "Automation opportunity report", "Zero commitment required"],
-      cta: "Book Now",
+      cta: "Book Your Audit",
       highlight: false,
     },
     {
       name: "Build Sprint",
       price: "$8K–$25K",
       period: "one-time",
-      desc: "Your full custom AI OS, deployed in 4–8 weeks.",
+      desc: "Your full custom AI OS, built and deployed in 4–8 weeks.",
       features: ["Complete agentic OS build", "Email, CRM, content & more", "Integrations with your existing tools", "Testing, docs & handoff"],
       cta: "Get Started",
       highlight: true,
@@ -482,9 +499,9 @@ function Pricing() {
       name: "Retainer",
       price: "$1.5K–$4K",
       period: "/month",
-      desc: "Ongoing optimization as your business grows.",
+      desc: "Ongoing optimization and new agent builds as your business grows.",
       features: ["System maintenance & monitoring", "New agent builds monthly", "Model & prompt optimization", "Priority support"],
-      cta: "Learn More",
+      cta: "Book Your Audit",
       highlight: false,
     },
   ];
@@ -619,7 +636,7 @@ function Footer() {
             </a>
           ))}
         </div>
-        <p className="text-xs text-[#A0A0BB]">© {new Date().getFullYear()} Automation Architects. All rights reserved.</p>
+        <p className="text-xs text-[#A0A0BB]">© {new Date().getFullYear()} Automation Architects</p>
       </div>
     </footer>
   );
