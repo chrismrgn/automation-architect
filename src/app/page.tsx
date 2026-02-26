@@ -1,103 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 import {
   Mail, BarChart2, Calendar, FileText, Brain, Zap,
-  CheckCircle, XCircle, ArrowRight, Menu, X,
+  CheckCircle, XCircle, ArrowRight,
 } from "lucide-react";
-
-/* ─────────────────────────────────────────── NAV */
-function Nav() {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 24);
-    window.addEventListener("scroll", handler);
-    return () => window.removeEventListener("scroll", handler);
-  }, []);
-
-  const links = [
-    { href: "#services", label: "Services" },
-    { href: "#process", label: "Process" },
-    { href: "#results", label: "Results" },
-    { href: "#pricing", label: "Pricing" },
-  ];
-
-  return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled ? "backdrop-blur-md bg-[#0A0A0F]/85 border-b border-[#1E1E2E]" : ""
-      }`}
-    >
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        {/* Logo */}
-        <a href="#" className="font-bold text-lg tracking-tight text-[#F0F0FF]">
-          Automation<span className="text-[#6C47FF]">Architects</span>
-        </a>
-
-        {/* Desktop links */}
-        <nav className="hidden md:flex items-center gap-8">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-sm text-[#A0A0BB] hover:text-[#F0F0FF] transition-colors"
-            >
-              {l.label}
-            </a>
-          ))}
-        </nav>
-
-        {/* Desktop CTA */}
-        <Button
-          asChild
-          size="sm"
-          className="hidden md:inline-flex bg-[#6C47FF] hover:bg-[#7C5CFF] text-white violet-glow transition-all"
-        >
-          <a href="#contact">Book Free Audit <ArrowRight className="ml-1 h-3.5 w-3.5" /></a>
-        </Button>
-
-        {/* Mobile hamburger */}
-        <button
-          className="md:hidden text-[#A0A0BB] hover:text-[#F0F0FF]"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          {menuOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
-      </div>
-
-      {/* Mobile drawer */}
-      {menuOpen && (
-        <div className="md:hidden border-t border-[#1E1E2E] bg-[#13131A] px-6 py-5 flex flex-col gap-5">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-sm text-[#A0A0BB] hover:text-[#F0F0FF] transition-colors"
-              onClick={() => setMenuOpen(false)}
-            >
-              {l.label}
-            </a>
-          ))}
-          <Separator className="bg-[#1E1E2E]" />
-          <a
-            href="#contact"
-            className="text-sm font-medium text-[#6C47FF]"
-            onClick={() => setMenuOpen(false)}
-          >
-            Book Free Audit →
-          </a>
-        </div>
-      )}
-    </header>
-  );
-}
 
 /* ─────────────────────────────────────────── HERO */
 function Hero() {
@@ -618,35 +527,10 @@ function FinalCTA() {
   );
 }
 
-/* ─────────────────────────────────────────── FOOTER */
-function Footer() {
-  return (
-    <footer className="border-t border-[#1E1E2E] bg-[#0A0A0F] px-6 py-12">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="text-center md:text-left">
-          <p className="font-bold text-[#F0F0FF] text-lg">
-            Automation<span className="text-[#6C47FF]">Architects</span>
-          </p>
-          <p className="text-[#A0A0BB] text-sm mt-1">Your business, on autopilot.</p>
-        </div>
-        <div className="flex gap-6 text-sm text-[#A0A0BB]">
-          {["#services", "#process", "#results", "#pricing"].map((href) => (
-            <a key={href} href={href} className="hover:text-[#F0F0FF] transition-colors capitalize">
-              {href.replace("#", "")}
-            </a>
-          ))}
-        </div>
-        <p className="text-xs text-[#A0A0BB]">© {new Date().getFullYear()} Automation Architects</p>
-      </div>
-    </footer>
-  );
-}
-
 /* ─────────────────────────────────────────── PAGE */
 export default function Home() {
   return (
     <main className="bg-[#0A0A0F]">
-      <Nav />
       <Hero />
       <Stats />
       <Problem />
@@ -656,7 +540,6 @@ export default function Home() {
       <ICP />
       <Pricing />
       <FinalCTA />
-      <Footer />
     </main>
   );
 }

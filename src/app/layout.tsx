@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Nav } from "@/components/nav";
+import { Footer } from "@/components/footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -29,7 +31,11 @@ export default function RootLayout({
     <html lang="en" className={inter.variable}>
       <body>
         <style>{`html { scroll-padding-top: 80px; }`}</style>
-        {children}
+        <div className="bg-[#0A0A0F] min-h-screen">
+          <Nav />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );
