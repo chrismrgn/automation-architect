@@ -5,6 +5,8 @@ const navLinks = [
   { href: "/process", label: "Process" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
+  { href: "/blog", label: "Blog" },
+  { href: "/clients", label: "For Clients" },
 ];
 
 export function Footer() {
