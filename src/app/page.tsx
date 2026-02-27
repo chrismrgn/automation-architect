@@ -7,6 +7,12 @@ import {
   Mail, BarChart2, Calendar, FileText, Brain, Zap,
   CheckCircle, XCircle, ArrowRight,
 } from "lucide-react";
+import { BeforeAfter } from "@/components/before-after";
+
+import { FAQ } from "@/components/faq";
+import { FaqSchema } from "@/components/faq-schema";
+import { ROICalculator } from "@/components/roi-calculator";
+import Link from "next/link";
 
 /* ─────────────────────────────────────────── HERO */
 function Hero() {
@@ -44,7 +50,7 @@ function Hero() {
             size="lg"
             className="bg-[#6C47FF] hover:bg-[#7C5CFF] text-white px-8 h-12 text-base violet-glow transition-all"
           >
-            <a href="#contact">
+            <a href="/contact">
               Book Your Free AI Audit <ArrowRight className="ml-2 h-4 w-4" />
             </a>
           </Button>
@@ -478,7 +484,7 @@ function Pricing() {
                       : "bg-transparent border border-[#1E1E2E] text-[#F0F0FF] hover:border-[#6C47FF]/40 hover:bg-[#6C47FF]/5"
                   } transition-all`}
                 >
-                  <a href="#contact">
+                  <a href="/contact">
                     {p.cta} <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
                   </a>
                 </Button>
@@ -527,18 +533,63 @@ function FinalCTA() {
   );
 }
 
+/* ─────────────────────────────────────────── BLOG TEASER */
+const BLOG_POSTS = [
+  { slug: "what-is-an-agentic-os", title: "What Is an Agentic OS for Business? (And Why It's Not a Chatbot)", excerpt: "The difference between a chatbot and a real AI operating system — and why it matters for your business.", readTime: "6 min read" },
+  { slug: "zapier-vs-make-vs-agentic-ai", title: "Zapier vs. Make vs. Agentic AI: What's Actually the Difference?", excerpt: "Rule-based workflows vs. intelligent agents. Here's when each makes sense — and when you've outgrown the simple tools.", readTime: "5 min read" },
+  { slug: "agency-automation-quick-wins", title: "5 Business Processes Every Agency Should Automate First", excerpt: "Lead follow-up, client reporting, invoicing, content scheduling, onboarding. Start here.", readTime: "5 min read" },
+];
+
+function BlogTeaser() {
+  return (
+    <section className="py-20 px-6 bg-[#0D0D14]">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex items-end justify-between mb-10">
+          <div>
+            <p className="text-xs uppercase tracking-widest text-[#6C47FF] mb-2 font-medium">From the blog</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#F0F0FF]">What we&apos;re thinking about</h2>
+          </div>
+          <Link href="/blog" className="hidden md:inline-flex items-center gap-1.5 text-sm text-[#A0A0BB] hover:text-[#F0F0FF] transition-colors">
+            All posts <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {BLOG_POSTS.map((post) => (
+            <Link key={post.slug} href={`/blog/${post.slug}`} className="group block bg-[#13131A] border border-[#1E1E2E] hover:border-[#6C47FF]/40 rounded-xl p-6 transition-all">
+              <p className="text-xs text-[#8888AA] mb-3">{post.readTime}</p>
+              <h3 className="text-[#F0F0FF] font-semibold leading-snug mb-3 group-hover:text-[#A090FF] transition-colors">{post.title}</h3>
+              <p className="text-sm text-[#8888AA] leading-relaxed mb-4">{post.excerpt}</p>
+              <span className="text-xs text-[#6C47FF] flex items-center gap-1">Read <ArrowRight className="h-3 w-3" /></span>
+            </Link>
+          ))}
+        </div>
+        <div className="mt-8 text-center md:hidden">
+          <Link href="/blog" className="text-sm text-[#A0A0BB] hover:text-[#F0F0FF] transition-colors">
+            All posts →
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ─────────────────────────────────────────── PAGE */
 export default function Home() {
   return (
     <main className="bg-[#0A0A0F]">
+      <FaqSchema />
       <Hero />
       <Stats />
       <Problem />
       <Solution />
+      <BeforeAfter />
       <Process />
       <Results />
       <ICP />
       <Pricing />
+      <ROICalculator />
+      <FAQ />
+      <BlogTeaser />
       <FinalCTA />
     </main>
   );
