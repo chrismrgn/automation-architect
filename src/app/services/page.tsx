@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import {
   Mail,
   BarChart2,
@@ -30,10 +27,11 @@ export const metadata: Metadata = {
 const services = [
   {
     icon: Mail,
+    n: "01",
     title: "Email Intelligence",
     tagline: "Your inbox, on autopilot",
     description:
-      "Triage, draft, prioritize, and respond — automatically. Your AI learns your communication style and handles routine emails while flagging what needs your attention.",
+      "Triage, draft, prioritize, and respond \u2014 automatically. Your AI learns your communication style and handles routine emails while flagging what needs your attention.",
     features: [
       "Smart triage & prioritization",
       "Auto-drafted responses",
@@ -43,6 +41,7 @@ const services = [
   },
   {
     icon: Zap,
+    n: "02",
     title: "CRM Automation",
     tagline: "Never drop a lead again",
     description:
@@ -56,10 +55,11 @@ const services = [
   },
   {
     icon: FileText,
+    n: "03",
     title: "Content Pipeline",
     tagline: "Content that creates itself",
     description:
-      "Blog posts, social media, newsletters — generated, reviewed, and scheduled. Your brand voice, maintained by AI.",
+      "Blog posts, social media, newsletters \u2014 generated, reviewed, and scheduled. Your brand voice, maintained by AI.",
     features: [
       "Blog post drafting",
       "Social media scheduling",
@@ -69,6 +69,7 @@ const services = [
   },
   {
     icon: BarChart2,
+    n: "04",
     title: "Reporting & Finance",
     tagline: "Reports that write themselves",
     description:
@@ -82,6 +83,7 @@ const services = [
   },
   {
     icon: Calendar,
+    n: "05",
     title: "Scheduling & Tasks",
     tagline: "Meetings and tasks, handled",
     description:
@@ -95,10 +97,11 @@ const services = [
   },
   {
     icon: Brain,
+    n: "06",
     title: "Business Memory",
     tagline: "An AI that knows your business",
     description:
-      "Your agentic OS learns your business context over time — preferences, patterns, relationships — and gets smarter every week.",
+      "Your agentic OS learns your business context over time \u2014 preferences, patterns, relationships \u2014 and gets smarter every week.",
     features: [
       "Contextual learning",
       "Pattern recognition",
@@ -120,25 +123,16 @@ const verticals = [
 
 function Hero() {
   return (
-    <section className="relative flex items-center justify-center overflow-hidden pt-32 pb-20">
-      <div className="absolute inset-0 grid-bg" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,rgba(108,71,255,0.08),transparent)]" />
-      <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-[#0A0A0F] to-transparent" />
+    <section className="pt-32 pb-20 px-6">
+      <div className="max-w-4xl mx-auto text-center">
+        <p className="text-xs uppercase tracking-widest text-[#FF6B47] mb-4 font-medium">Our Services</p>
 
-      <div className="relative z-10 w-full max-w-4xl mx-auto px-6 text-center">
-        <Badge
-          variant="outline"
-          className="mb-6 border-[#00D4FF]/30 bg-[#00D4FF]/10 text-[#00D4FF] text-xs px-3 py-1"
-        >
-          Our Services
-        </Badge>
-
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-6 text-[#F0F0FF]">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-6 text-[#F5F0EB]">
           What We Build
         </h1>
 
-        <p className="text-lg md:text-xl text-[#A0A0BB] leading-relaxed max-w-2xl mx-auto">
-          Not a chatbot. Not a Zapier workflow. A full intelligent system —
+        <p className="text-lg md:text-xl text-[#8399AE] leading-relaxed max-w-2xl mx-auto">
+          Not a chatbot. Not a Zapier workflow. A full intelligent system &mdash;
           custom-built for your business.
         </p>
       </div>
@@ -146,50 +140,51 @@ function Hero() {
   );
 }
 
-/* ─────────────────────────────────────────── SERVICE CARDS */
+/* ─────────────────────────────────────────── SERVICE LIST */
 
-function ServiceCards() {
+function ServiceList() {
   return (
-    <section className="py-16 px-6">
+    <section className="py-16 px-6 border-t border-[#3C4C5C]">
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service) => {
-            const Icon = service.icon;
-            return (
-              <Card
-                key={service.title}
-                className="bg-[#13131A] border-[#1E1E2E] hover:border-[#6C47FF]/30 transition-colors"
-              >
-                <CardContent className="p-8">
-                  <div className="mb-5 w-12 h-12 rounded-full bg-[#6C47FF]/10 flex items-center justify-center">
-                    <Icon className="h-5 w-5 text-[#00D4FF]" />
+        {services.map((service) => {
+          const Icon = service.icon;
+          return (
+            <div
+              key={service.title}
+              className="border-b border-[#3C4C5C] py-10 first:pt-0 last:border-b-0"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 md:gap-10">
+                <div className="flex items-start gap-4">
+                  <span className="text-[#6C47FF] font-bold text-sm mt-1">{service.n}</span>
+                  <div className="w-10 h-10 rounded-lg bg-[#6C47FF]/10 flex items-center justify-center">
+                    <Icon className="h-5 w-5 text-[#FF6B47]" />
                   </div>
-
-                  <h3 className="font-bold text-[#F0F0FF] text-lg mb-1">
+                </div>
+                <div>
+                  <h3 className="font-bold text-[#F5F0EB] text-lg mb-1">
                     {service.title}
                   </h3>
-                  <p className="text-[#00D4FF] text-sm font-medium mb-3">
+                  <p className="text-[#FF6B47] text-sm font-medium mb-3">
                     {service.tagline}
                   </p>
-                  <p className="text-[#A0A0BB] text-sm leading-relaxed mb-5">
+                  <p className="text-[#8399AE] text-sm leading-relaxed mb-5">
                     {service.description}
                   </p>
-
-                  <ul className="space-y-2.5">
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {service.features.map((feature) => (
                       <li key={feature} className="flex items-start gap-2.5">
                         <CheckCircle className="h-4 w-4 text-[#00C896] mt-0.5 shrink-0" />
-                        <span className="text-[#A0A0BB] text-sm">
+                        <span className="text-[#8399AE] text-sm">
                           {feature}
                         </span>
                       </li>
                     ))}
                   </ul>
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </section>
   );
@@ -199,35 +194,33 @@ function ServiceCards() {
 
 function IndustryVerticals() {
   return (
-    <section className="py-16 px-6 bg-[#0D0D14]">
+    <section className="py-16 px-6 border-t border-[#3C4C5C]">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#F0F0FF] leading-tight mb-5">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#F5F0EB] leading-tight mb-5">
             Built for your industry
           </h2>
-          <p className="text-[#A0A0BB] text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-[#8399AE] text-lg max-w-2xl mx-auto leading-relaxed">
             Every agentic OS is custom-built. We know the workflows, tools, and
             pain points in your industry.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">
-          {verticals.map((vertical) => {
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-0">
+          {verticals.map((vertical, i) => {
             const Icon = vertical.icon;
             return (
-              <Card
+              <div
                 key={vertical.label}
-                className="bg-[#13131A] border-[#1E1E2E] hover:border-[#6C47FF]/30 hover:-translate-y-1 transition-all"
+                className={`p-6 text-center ${i > 0 ? "border-l border-[#3C4C5C]" : ""}`}
               >
-                <CardContent className="p-6 text-center">
-                  <div className="mb-4 w-11 h-11 rounded-xl bg-[#00D4FF]/10 flex items-center justify-center mx-auto">
-                    <Icon className="h-5 w-5 text-[#00D4FF]" />
-                  </div>
-                  <p className="text-[#F0F0FF] text-sm font-medium leading-snug">
-                    {vertical.label}
-                  </p>
-                </CardContent>
-              </Card>
+                <div className="mb-4 w-11 h-11 rounded-xl bg-[#FF6B47]/10 flex items-center justify-center mx-auto">
+                  <Icon className="h-5 w-5 text-[#FF6B47]" />
+                </div>
+                <p className="text-[#F5F0EB] text-sm font-medium leading-snug">
+                  {vertical.label}
+                </p>
+              </div>
             );
           })}
         </div>
@@ -240,32 +233,24 @@ function IndustryVerticals() {
 
 function CTA() {
   return (
-    <section className="relative py-24 px-6 overflow-hidden">
-      <div className="absolute inset-0 grid-bg opacity-50" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_50%_50%,rgba(108,71,255,0.06),transparent)]" />
-      <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-[#0D0D14] to-transparent" />
-      <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-[#0A0A0F] to-transparent" />
-
-      <div className="relative z-10 max-w-3xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight mb-6 text-[#F0F0FF]">
+    <section className="py-24 px-6 border-t border-[#3C4C5C]">
+      <div className="max-w-3xl mx-auto text-center">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight mb-6 text-[#F5F0EB]">
           Ready to see what&apos;s automatable?
         </h2>
-        <p className="text-[#A0A0BB] text-lg leading-relaxed max-w-xl mx-auto mb-8">
+        <p className="text-[#8399AE] text-lg leading-relaxed max-w-xl mx-auto mb-8">
           Book a free 30-minute AI Audit. We&apos;ll map out every manual
           process in your business and show you exactly what can run on
           autopilot.
         </p>
-        <Button
-          asChild
-          size="lg"
-          className="bg-[#6C47FF] hover:bg-[#7C5CFF] text-white px-10 h-14 text-base violet-glow transition-all"
+        <a
+          href="/contact"
+          className="inline-flex items-center gap-2 bg-[#6C47FF] hover:bg-[#7C5CFF] text-white px-10 py-4 text-base font-medium transition-colors rounded-[2px]"
         >
-          <Link href="/contact">
-            Book Your Free Audit <ArrowRight className="ml-2 h-5 w-5" />
-          </Link>
-        </Button>
-        <p className="text-xs text-[#A0A0BB] mt-5">
-          No commitment · 30 minutes · Immediate value, guaranteed
+          Book Your Free Audit <ArrowRight className="h-5 w-5" />
+        </a>
+        <p className="text-xs text-[#8399AE] mt-5">
+          No commitment &middot; 30 minutes &middot; Immediate value, guaranteed
         </p>
       </div>
     </section>
@@ -276,9 +261,9 @@ function CTA() {
 
 export default function ServicesPage() {
   return (
-    <main className="bg-[#0A0A0F]">
+    <main className="bg-[#252F3A]">
       <Hero />
-      <ServiceCards />
+      <ServiceList />
       <IndustryVerticals />
       <CTA />
     </main>

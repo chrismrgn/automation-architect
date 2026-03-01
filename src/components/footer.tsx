@@ -11,26 +11,26 @@ const navLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-[#1E1E2E] bg-[#0A0A0F] px-6 py-12">
+    <footer className="border-t border-[#3C4C5C] bg-[#252F3A] px-6 py-12">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="text-center md:text-left">
-          <p className="font-bold text-[#F0F0FF] text-lg">
+          <p className="font-bold text-[#F5F0EB] text-lg">
             Automation<span className="text-[#6C47FF]">Architects</span>
           </p>
-          <p className="text-[#A0A0BB] text-sm mt-1">Your business, on autopilot.</p>
+          <p className="text-[#8399AE] text-sm mt-1">Your business, on autopilot.</p>
         </div>
-        <div className="flex gap-6 text-sm text-[#A0A0BB]">
+        <div className="flex gap-6 text-sm text-[#8399AE]">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="hover:text-[#F0F0FF] transition-colors"
+              className="hover:text-[#F5F0EB] transition-colors"
             >
               {link.label}
             </Link>
           ))}
         </div>
-        <p className="text-xs text-[#A0A0BB]">© {new Date().getFullYear()} Automation Architects</p>
+        <p className="text-xs text-[#8399AE]">&copy; {new Date().getFullYear()} Automation Architects</p>
       </div>
     </footer>
   );

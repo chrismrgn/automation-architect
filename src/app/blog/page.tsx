@@ -18,13 +18,13 @@ export default function BlogIndex() {
   const posts = getAllPosts();
 
   return (
-    <main className="bg-[#0A0A0F] min-h-screen pt-24 pb-16 px-6">
+    <main className="bg-[#252F3A] min-h-screen pt-24 pb-16 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#F0F0FF] mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#F5F0EB] mb-4">
             From the blog
           </h1>
-          <p className="text-[#8888AA] text-lg max-w-xl mx-auto">
+          <p className="text-[#8399AE] text-lg max-w-xl mx-auto">
             Practical insights on AI automation for growing businesses.
           </p>
         </div>
@@ -34,26 +34,26 @@ export default function BlogIndex() {
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="group rounded-xl border border-[#1E1E2E] bg-[#13131A] p-6 hover:border-[#6C47FF]/30 transition-colors flex flex-col"
+              className="group border-t border-[#3C4C5C] pt-6 flex flex-col hover:bg-[#2E3B47]/50 transition-colors p-6"
             >
               <div className="flex flex-wrap gap-2 mb-4">
                 {post.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="text-xs px-2 py-0.5 rounded-md bg-[#6C47FF]/10 text-[#A0A0BB]"
+                    className="text-xs px-2 py-0.5 rounded-md bg-[#6C47FF]/10 text-[#8399AE]"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
-              <h2 className="text-lg font-semibold text-[#F0F0FF] mb-2 group-hover:text-[#6C47FF] transition-colors">
+              <h2 className="text-lg font-semibold text-[#F5F0EB] mb-2 group-hover:text-[#6C47FF] transition-colors">
                 {post.title}
               </h2>
-              <p className="text-sm text-[#A0A0BB] leading-relaxed mb-4 flex-1 line-clamp-2">
+              <p className="text-sm text-[#8399AE] leading-relaxed mb-4 flex-1 line-clamp-2">
                 {post.excerpt}
               </p>
               <div className="flex items-center justify-between">
-                <span className="text-xs text-[#8888AA]">{post.readTime}</span>
+                <span className="text-xs text-[#8399AE]">{post.readTime}</span>
                 <span className="text-sm text-[#6C47FF] flex items-center gap-1 group-hover:gap-2 transition-all">
                   Read <ArrowRight className="h-3 w-3" />
                 </span>

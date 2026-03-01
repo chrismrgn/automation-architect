@@ -1,14 +1,9 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
 import {
-  Mail, BarChart2, Calendar, FileText, Brain, Zap,
   CheckCircle, XCircle, ArrowRight,
 } from "lucide-react";
 import { BeforeAfter } from "@/components/before-after";
-
 import { FAQ } from "@/components/faq";
 import { FaqSchema } from "@/components/faq-schema";
 import { ROICalculator } from "@/components/roi-calculator";
@@ -17,54 +12,31 @@ import Link from "next/link";
 /* ─────────────────────────────────────────── HERO */
 function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Grid background */}
-      <div className="absolute inset-0 grid-bg" />
-      {/* Subtle top glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,rgba(108,71,255,0.08),transparent)]" />
-      <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-[#0A0A0F] to-transparent" />
+    <section className="relative overflow-hidden pt-8 pb-0">
+      {/* Giant viewport-width type */}
+      <h1 className="hero-wordmark" aria-label="Your business runs itself">
+        <span className="block text-left">Your</span>
+        <span className="block text-right">Business</span>
+        <span className="block text-center">Runs.</span>
+      </h1>
 
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 pt-24 pb-16 text-center">
-        <Badge
-          variant="outline"
-          className="mb-8 border-[#6C47FF]/30 bg-[#6C47FF]/10 text-[#6C47FF] text-xs px-3 py-1"
-        >
-          <Zap className="mr-1.5 h-3 w-3" />
-          AI Operating Systems for Growing Businesses
-        </Badge>
-
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight mb-6">
-          <span className="text-gradient">Your business</span>
-          <br />
-          <span className="text-[#F0F0FF]">runs itself.</span>
-        </h1>
-
-        <p className="text-lg md:text-xl text-[#A0A0BB] leading-relaxed max-w-2xl mx-auto mb-8">
-          We build custom AI operating systems for growing businesses — so you can stop
-          doing the work your business should be doing automatically.
-        </p>
-
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
-          <Button
-            asChild
-            size="lg"
-            className="bg-[#6C47FF] hover:bg-[#7C5CFF] text-white px-8 h-12 text-base violet-glow transition-all"
-          >
-            <a href="/contact">
-              Book Your Free AI Audit <ArrowRight className="ml-2 h-4 w-4" />
+      {/* Standfirst below */}
+      <div className="max-w-6xl mx-auto px-6 pt-16 pb-20">
+        <div className="max-w-2xl">
+          <p className="standfirst text-[#F5F0EB] mb-8">
+            We build custom AI operating systems for growing businesses &mdash;
+            so you can stop doing the work your business should be doing automatically.
+          </p>
+          <div className="flex flex-wrap gap-4 items-center">
+            <a href="/contact" className="inline-flex items-center gap-2 bg-[#6C47FF] hover:bg-[#7C5CFF] text-white px-8 py-4 text-base font-medium transition-colors rounded-[2px]">
+              Book Your Free AI Audit &rarr;
             </a>
-          </Button>
-          <a
-            href="#process"
-            className="text-sm text-[#A0A0BB] hover:text-[#F0F0FF] underline underline-offset-4 decoration-[#A0A0BB]/30 hover:decoration-[#F0F0FF] transition-all"
-          >
-            See how it works ↓
-          </a>
+            <a href="#process" className="text-[#8399AE] hover:text-[#F5F0EB] transition-colors underline underline-offset-4 decoration-[#8399AE]/40">
+              See how it works
+            </a>
+          </div>
+          <p className="text-sm text-[#8399AE] mt-4">No commitment &middot; 30 minutes &middot; Immediate value</p>
         </div>
-
-        <p className="text-xs text-[#A0A0BB]">
-          No commitment · 30 minutes · Immediate value, guaranteed
-        </p>
       </div>
     </section>
   );
@@ -75,18 +47,23 @@ function Stats() {
   const items = [
     { value: "20+", label: "hours saved", sub: "per client, per week" },
     { value: "<3mo", label: "to full ROI", sub: "typical payback period" },
-    { value: "4–8wk", label: "to deploy", sub: "from kickoff to live" },
+    { value: "4\u20138wk", label: "to deploy", sub: "from kickoff to live" },
     { value: "0", label: "off-the-shelf", sub: "everything is custom" },
   ];
   return (
-    <div className="border-y border-[#1E1E2E] bg-[#13131A]/60">
-      <div className="max-w-6xl mx-auto px-6 py-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          {items.map((item) => (
-            <div key={item.label}>
-              <div className="text-2xl font-bold text-[#00C896]">{item.value}</div>
-              <div className="text-sm text-[#F0F0FF] font-medium mt-1">{item.label}</div>
-              <div className="text-xs text-[#A0A0BB] mt-0.5">{item.sub}</div>
+    <div className="border-y border-[#3C4C5C]">
+      <div className="max-w-6xl mx-auto px-6 py-10">
+        <div className="flex flex-wrap justify-between gap-8 text-center">
+          {items.map((item, i) => (
+            <div key={item.label} className="flex items-center gap-8">
+              <div>
+                <div className="text-3xl md:text-4xl font-bold text-[#00C896]">{item.value}</div>
+                <div className="text-sm text-[#F5F0EB] font-medium mt-1">{item.label}</div>
+                <div className="text-xs text-[#8399AE] mt-0.5">{item.sub}</div>
+              </div>
+              {i < items.length - 1 && (
+                <div className="hidden md:block w-px h-12 bg-[#3C4C5C]" />
+              )}
             </div>
           ))}
         </div>
@@ -99,51 +76,55 @@ function Stats() {
 function Problem() {
   const pains = [
     {
-      icon: <Mail className="h-6 w-6 text-[#6C47FF]" />,
+      n: "01",
       title: "Your inbox is a full-time job",
       desc: "Sorting, triaging, drafting replies. Hours disappear every day into work that AI should be handling for you.",
     },
     {
-      icon: <Calendar className="h-6 w-6 text-[#6C47FF]" />,
+      n: "02",
       title: "Admin eats half your week",
-      desc: "Scheduling, reporting, invoicing — all manual. All your time. None of it is actually growing your business.",
+      desc: "Scheduling, reporting, invoicing \u2014 all manual. All your time. None of it is actually growing your business.",
     },
     {
-      icon: <BarChart2 className="h-6 w-6 text-[#6C47FF]" />,
+      n: "03",
       title: "The same tasks. Every day.",
-      desc: "Follow-ups, status updates, data entry — on repeat. You're trapped in the machine instead of building it.",
+      desc: "Follow-ups, status updates, data entry \u2014 on repeat. You\u2019re trapped in the machine instead of building it.",
     },
   ];
 
   return (
-    <section className="py-16 px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#F0F0FF] leading-tight mb-5">
-            You&apos;re running a business.
-            <br />
-            <span className="text-[#A0A0BB] font-normal">
-              And doing jobs that shouldn&apos;t exist.
-            </span>
-          </h2>
-          <p className="text-[#A0A0BB] text-lg max-w-xl mx-auto leading-relaxed">
-            You started to build something. Instead, you&apos;re stuck in it. Every hour
-            spent on admin is an hour not spent on growth.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {pains.map((p) => (
-            <Card key={p.title} className="bg-[#13131A] border-[#1E1E2E] hover:border-[#6C47FF]/30 transition-colors">
-              <CardContent className="p-8">
-                <div className="mb-5 w-11 h-11 rounded-xl bg-[#6C47FF]/10 flex items-center justify-center">
-                  {p.icon}
+    <section className="editorial-section">
+      <div className="max-w-7xl mx-auto px-6 py-20 md:py-32">
+        <div className="editorial-grid">
+          <div className="editorial-label">
+            <span className="section-number">01</span>
+            <span className="section-title">The Problem</span>
+          </div>
+          <div className="editorial-content">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#F5F0EB] leading-tight mb-4">
+              You&apos;re running a business.{" "}
+              <span className="text-[#8399AE] font-normal">
+                And doing jobs that shouldn&apos;t exist.
+              </span>
+            </h2>
+            <p className="text-[#8399AE] mb-10 max-w-xl leading-relaxed">
+              You started to build something. Instead, you&apos;re stuck in it. Every hour
+              spent on admin is an hour not spent on growth.
+            </p>
+            <div className="space-y-0">
+              {pains.map((p) => (
+                <div key={p.n} className="border-t border-[#3C4C5C] py-6">
+                  <div className="flex items-start gap-4">
+                    <span className="text-[#6C47FF] font-bold text-sm mt-1 shrink-0">{p.n}</span>
+                    <div>
+                      <h3 className="font-semibold text-[#F5F0EB] text-lg mb-1">{p.title}</h3>
+                      <p className="text-[#8399AE] text-sm leading-relaxed">{p.desc}</p>
+                    </div>
+                  </div>
                 </div>
-                <h3 className="font-semibold text-[#F0F0FF] text-lg mb-2">{p.title}</h3>
-                <p className="text-[#A0A0BB] text-sm leading-relaxed">{p.desc}</p>
-              </CardContent>
-            </Card>
-          ))}
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -153,50 +134,45 @@ function Problem() {
 /* ─────────────────────────────────────────── SOLUTION */
 function Solution() {
   const caps = [
-    { icon: <Mail className="h-5 w-5" />, title: "Email Intelligence", desc: "Triage, draft, prioritize, and respond — automatically, 24/7." },
-    { icon: <Zap className="h-5 w-5" />, title: "CRM Automation", desc: "Leads followed up, deals tracked, nothing ever dropped." },
-    { icon: <FileText className="h-5 w-5" />, title: "Content Pipeline", desc: "Blog posts, social, newsletters — generated and scheduled." },
-    { icon: <BarChart2 className="h-5 w-5" />, title: "Reporting & Finance", desc: "KPIs tracked, reports written, invoices processed." },
-    { icon: <Calendar className="h-5 w-5" />, title: "Scheduling & Tasks", desc: "Meetings booked, tasks assigned, deadlines managed." },
-    { icon: <Brain className="h-5 w-5" />, title: "Business Memory", desc: "Your AI learns your business over time and gets smarter." },
+    { n: "01", title: "Email Intelligence", desc: "Triage, draft, prioritize, and respond \u2014 automatically, 24/7." },
+    { n: "02", title: "CRM Automation", desc: "Leads followed up, deals tracked, nothing ever dropped." },
+    { n: "03", title: "Content Pipeline", desc: "Blog posts, social, newsletters \u2014 generated and scheduled." },
+    { n: "04", title: "Reporting & Finance", desc: "KPIs tracked, reports written, invoices processed." },
+    { n: "05", title: "Scheduling & Tasks", desc: "Meetings booked, tasks assigned, deadlines managed." },
+    { n: "06", title: "Business Memory", desc: "Your AI learns your business over time and gets smarter." },
   ];
 
   return (
-    <section id="services" className="py-16 px-6 bg-[#0D0D14]">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <Badge
-            variant="outline"
-            className="mb-5 border-[#00D4FF]/30 bg-[#00D4FF]/10 text-[#00D4FF] text-xs"
-          >
-            Not a chatbot. Not Zapier.
-          </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#F0F0FF] leading-tight mb-5">
-            We build the AI operating system
-            <br />
-            <span className="text-gradient">your business needs.</span>
-          </h2>
-          <p className="text-[#A0A0BB] text-lg max-w-xl mx-auto leading-relaxed">
-            A full intelligent system — custom-built for how your business actually runs.
-            Every workflow. Every integration. Every edge case.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {caps.map((c) => (
-            <Card
-              key={c.title}
-              className="bg-[#13131A] border-[#1E1E2E] hover:border-[#00D4FF]/25 transition-colors group"
-            >
-              <CardContent className="p-6">
-                <div className="mb-4 w-10 h-10 rounded-lg bg-[#6C47FF]/10 flex items-center justify-center text-[#00D4FF] group-hover:bg-[#6C47FF]/20 transition-colors">
-                  {c.icon}
+    <section id="services" className="editorial-section">
+      <div className="max-w-7xl mx-auto px-6 py-20 md:py-32">
+        <div className="editorial-grid">
+          <div className="editorial-label">
+            <span className="section-number">02</span>
+            <span className="section-title">What We Build</span>
+          </div>
+          <div className="editorial-content">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#F5F0EB] leading-tight mb-4">
+              We build the AI operating system{" "}
+              <span className="text-gradient">your business needs.</span>
+            </h2>
+            <p className="text-[#8399AE] mb-10 max-w-xl leading-relaxed">
+              A full intelligent system &mdash; custom-built for how your business actually runs.
+              Every workflow. Every integration. Every edge case.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+              {caps.map((c) => (
+                <div key={c.n} className="border-t border-[#3C4C5C] py-5">
+                  <div className="flex items-start gap-4">
+                    <span className="text-[#6C47FF] font-bold text-sm mt-1 shrink-0">{c.n}</span>
+                    <div>
+                      <h3 className="font-semibold text-[#F5F0EB] mb-1">{c.title}</h3>
+                      <p className="text-[#8399AE] text-sm leading-relaxed">{c.desc}</p>
+                    </div>
+                  </div>
                 </div>
-                <h3 className="font-semibold text-[#F0F0FF] mb-1.5">{c.title}</h3>
-                <p className="text-[#A0A0BB] text-sm leading-relaxed">{c.desc}</p>
-              </CardContent>
-            </Card>
-          ))}
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -206,38 +182,36 @@ function Solution() {
 /* ─────────────────────────────────────────── PROCESS */
 function Process() {
   const steps = [
-    { n: "01", time: "Week 0 · Free", title: "AI Audit", desc: "30-min call. We map every manual task and show you exactly what's automatable. No commitment." },
-    { n: "02", time: "$2.5K – $5K", title: "Design Your OS", desc: "We architect your custom agentic system. Process maps, tech stack, integration plan." },
-    { n: "03", time: "$8K – $25K", title: "Build & Deploy", desc: "We build and launch your AI OS in 4–8 weeks. Fully tested, fully yours." },
-    { n: "04", time: "$1.5K – $4K/mo", title: "Ongoing Optimization", desc: "Maintenance, new agent builds, and improvements as your business grows." },
+    { n: "01", time: "Week 0 \u00b7 Free", title: "AI Audit", desc: "30-min call. We map every manual task and show you exactly what\u2019s automatable. No commitment." },
+    { n: "02", time: "$2.5K \u2013 $5K", title: "Design Your OS", desc: "We architect your custom agentic system. Process maps, tech stack, integration plan." },
+    { n: "03", time: "$8K \u2013 $25K", title: "Build & Deploy", desc: "We build and launch your AI OS in 4\u20138 weeks. Fully tested, fully yours." },
+    { n: "04", time: "$1.5K \u2013 $4K/mo", title: "Ongoing Optimization", desc: "Maintenance, new agent builds, and improvements as your business grows." },
   ];
 
   return (
-    <section id="process" className="py-16 px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#F0F0FF] leading-tight mb-5">
-            From chaos to autopilot
-            <br />
-            <span className="text-[#6C47FF]">in 4–8 weeks.</span>
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {steps.map((s, i) => (
-            <div key={s.n} className="relative">
-              {/* Connector line between steps */}
-              {i < steps.length - 1 && (
-                <div className="hidden md:block absolute top-7 left-14 right-[-1rem] h-px bg-[#6C47FF]/20" />
-              )}
-              <div className="w-14 h-14 rounded-2xl bg-[#6C47FF]/10 border border-[#6C47FF]/25 flex items-center justify-center text-[#6C47FF] font-bold text-lg mb-5">
-                {s.n}
-              </div>
-              <div className="text-xs text-[#00D4FF] font-medium mb-1.5">{s.time}</div>
-              <h3 className="font-semibold text-[#F0F0FF] text-lg mb-2">{s.title}</h3>
-              <p className="text-[#A0A0BB] text-sm leading-relaxed">{s.desc}</p>
+    <section id="process" className="editorial-section">
+      <div className="max-w-7xl mx-auto px-6 py-20 md:py-32">
+        <div className="editorial-grid">
+          <div className="editorial-label">
+            <span className="section-number">03</span>
+            <span className="section-title">How It Works</span>
+          </div>
+          <div className="editorial-content">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#F5F0EB] leading-tight mb-10">
+              From chaos to autopilot{" "}
+              <span className="text-[#6C47FF]">in 4\u20138 weeks.</span>
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+              {steps.map((s) => (
+                <div key={s.n} className="border-t border-[#3C4C5C] py-6">
+                  <span className="text-[#6C47FF] font-bold text-2xl mb-2 block">{s.n}</span>
+                  <div className="text-xs text-[#FF6B47] font-medium mb-1.5">{s.time}</div>
+                  <h3 className="font-semibold text-[#F5F0EB] text-lg mb-2">{s.title}</h3>
+                  <p className="text-[#8399AE] text-sm leading-relaxed">{s.desc}</p>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>
@@ -254,70 +228,77 @@ function Results() {
   ];
 
   return (
-    <section id="results" className="py-16 px-6 bg-[#0D0D14]">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#F0F0FF] mb-5">
-            The numbers that matter.
-          </h2>
-        </div>
+    <section id="results" className="editorial-section">
+      <div className="max-w-7xl mx-auto px-6 py-20 md:py-32">
+        <div className="editorial-grid">
+          <div className="editorial-label">
+            <span className="section-number">04</span>
+            <span className="section-title">Results</span>
+          </div>
+          <div className="editorial-content">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#F5F0EB] mb-10">
+              The numbers that matter.
+            </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-8">
-          {metrics.map((m) => (
-            <Card key={m.label} className="bg-[#13131A] border-[#1E1E2E] text-center">
-              <CardContent className="p-8">
-                <div className="text-4xl font-bold text-[#00C896] mb-1">{m.value}</div>
-                <div className="text-sm font-medium text-[#F0F0FF]">{m.label}</div>
-                <div className="text-xs text-[#A0A0BB] mt-1">{m.sub}</div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+            {/* Metric row */}
+            <div className="flex flex-wrap gap-8 mb-12">
+              {metrics.map((m, i) => (
+                <div key={m.label} className="flex items-center gap-8">
+                  <div className="text-center">
+                    <div className="text-4xl font-bold text-[#00C896] mb-1">{m.value}</div>
+                    <div className="text-sm font-medium text-[#F5F0EB]">{m.label}</div>
+                    <div className="text-xs text-[#8399AE] mt-1">{m.sub}</div>
+                  </div>
+                  {i < metrics.length - 1 && (
+                    <div className="hidden md:block w-px h-12 bg-[#3C4C5C]" />
+                  )}
+                </div>
+              ))}
+            </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
-          <Card className="bg-[#13131A] border-[#6C47FF]/20">
-            <CardContent className="p-8">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-[#6C47FF]/20 flex items-center justify-center text-[#6C47FF] font-bold text-sm">PS</div>
-                <div>
-                  <div className="text-[#F0F0FF] text-sm font-medium">Professional Services Firm</div>
-                  <div className="text-[#A0A0BB] text-xs">12-person agency · Full OS build</div>
+            {/* Case studies */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="border-t border-[#3C4C5C] pt-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-[#6C47FF]/20 flex items-center justify-center text-[#6C47FF] font-bold text-sm">PS</div>
+                  <div>
+                    <div className="text-[#F5F0EB] text-sm font-medium">Professional Services Firm</div>
+                    <div className="text-[#8399AE] text-xs">12-person agency &middot; Full OS build</div>
+                  </div>
+                </div>
+                <p className="text-[#8399AE] text-sm leading-relaxed mb-5">
+                  Eliminated manual email triage, automated client follow-ups, and built a reporting pipeline. Owner reclaimed{" "}
+                  <strong className="text-[#00C896]">22 hrs/week</strong> and closed{" "}
+                  <strong className="text-[#00C896]">40% more deals</strong> within 60 days.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {["Email Intelligence", "CRM Automation", "Reporting"].map(t => (
+                    <span key={t} className="text-xs px-2 py-1 rounded-md bg-[#6C47FF]/10 text-[#8399AE]">{t}</span>
+                  ))}
                 </div>
               </div>
-              <p className="text-[#A0A0BB] text-sm leading-relaxed mb-5">
-                Eliminated manual email triage, automated client follow-ups, and built a reporting pipeline. Owner reclaimed{" "}
-                <strong className="text-[#00C896]">22 hrs/week</strong> and closed{" "}
-                <strong className="text-[#00C896]">40% more deals</strong> within 60 days.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {["Email Intelligence", "CRM Automation", "Reporting"].map(t => (
-                  <span key={t} className="text-xs px-2 py-1 rounded-md bg-[#6C47FF]/10 text-[#A0A0BB]">{t}</span>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
 
-          <Card className="bg-[#13131A] border-[#00D4FF]/15">
-            <CardContent className="p-8">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-[#00D4FF]/15 flex items-center justify-center text-[#00D4FF] font-bold text-sm">EC</div>
-                <div>
-                  <div className="text-[#F0F0FF] text-sm font-medium">eCommerce Brand</div>
-                  <div className="text-[#A0A0BB] text-xs">8-person team · Content & CRM</div>
+              <div className="border-t border-[#3C4C5C] pt-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-[#FF6B47]/15 flex items-center justify-center text-[#FF6B47] font-bold text-sm">EC</div>
+                  <div>
+                    <div className="text-[#F5F0EB] text-sm font-medium">eCommerce Brand</div>
+                    <div className="text-[#8399AE] text-xs">8-person team &middot; Content &amp; CRM</div>
+                  </div>
+                </div>
+                <p className="text-[#8399AE] text-sm leading-relaxed mb-5">
+                  Automated product listings, customer follow-up sequences, and weekly reporting. Team reclaimed{" "}
+                  <strong className="text-[#00C896]">30 hrs/week</strong> in manual work and grew email revenue by{" "}
+                  <strong className="text-[#00C896]">55%</strong> in 90 days.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {["Content Pipeline", "Email Sequences", "Analytics"].map(t => (
+                    <span key={t} className="text-xs px-2 py-1 rounded-md bg-[#FF6B47]/10 text-[#8399AE]">{t}</span>
+                  ))}
                 </div>
               </div>
-              <p className="text-[#A0A0BB] text-sm leading-relaxed mb-5">
-                Automated product listings, customer follow-up sequences, and weekly reporting. Team reclaimed{" "}
-                <strong className="text-[#00C896]">30 hrs/week</strong> in manual work and grew email revenue by{" "}
-                <strong className="text-[#00C896]">55%</strong> in 90 days.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {["Content Pipeline", "Email Sequences", "Analytics"].map(t => (
-                  <span key={t} className="text-xs px-2 py-1 rounded-md bg-[#00D4FF]/10 text-[#A0A0BB]">{t}</span>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -327,62 +308,63 @@ function Results() {
 /* ─────────────────────────────────────────── ICP */
 function ICP() {
   const forYou = [
-    "$1M–$20M revenue, feeling operationally stretched",
-    "5–50 employees, owner still buried in admin",
+    "$1M\u2013$20M revenue, feeling operationally stretched",
+    "5\u201350 employees, owner still buried in admin",
     "Paying for 5+ SaaS tools you underuse",
     "Tried AI but nothing has actually worked yet",
     "Want to scale without just hiring more people",
   ];
   const notForYou = [
     "You just want a chatbot or a simple automation",
-    "You're not ready to invest in your systems",
+    "You\u2019re not ready to invest in your systems",
     "You need it done in a week",
-    "You're comfortable with the status quo",
+    "You\u2019re comfortable with the status quo",
   ];
 
   return (
-    <section className="py-16 px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#F0F0FF] leading-tight mb-5">
-            Built for businesses
-            <br />
-            <span className="text-gradient">ready to scale.</span>
-          </h2>
-        </div>
+    <section className="editorial-section">
+      <div className="max-w-7xl mx-auto px-6 py-20 md:py-32">
+        <div className="editorial-grid">
+          <div className="editorial-label">
+            <span className="section-number">05</span>
+            <span className="section-title">Who It&apos;s For</span>
+          </div>
+          <div className="editorial-content">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#F5F0EB] leading-tight mb-10">
+              Built for businesses{" "}
+              <span className="text-gradient">ready to scale.</span>
+            </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Card className="border-[#00C896]/20 bg-[#00C896]/5">
-            <CardContent className="p-8">
-              <h3 className="font-semibold text-[#00C896] text-lg mb-6 flex items-center gap-2">
-                <CheckCircle className="h-5 w-5" /> This is for you if…
-              </h3>
-              <ul className="space-y-3">
-                {forYou.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <CheckCircle className="h-4 w-4 text-[#00C896] mt-0.5 shrink-0" />
-                    <span className="text-[#A0A0BB] text-sm leading-relaxed">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="font-semibold text-[#00C896] text-lg mb-6 flex items-center gap-2">
+                  <CheckCircle className="h-5 w-5" /> This is for you if&hellip;
+                </h3>
+                <ul className="space-y-3">
+                  {forYou.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <CheckCircle className="h-4 w-4 text-[#00C896] mt-0.5 shrink-0" />
+                      <span className="text-[#8399AE] text-sm leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-          <Card className="bg-[#13131A] border-[#1E1E2E]">
-            <CardContent className="p-8">
-              <h3 className="font-semibold text-[#A0A0BB] text-lg mb-6 flex items-center gap-2">
-                <XCircle className="h-5 w-5" /> This isn&apos;t for you if…
-              </h3>
-              <ul className="space-y-3">
-                {notForYou.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <XCircle className="h-4 w-4 text-[#A0A0BB]/40 mt-0.5 shrink-0" />
-                    <span className="text-[#A0A0BB] text-sm leading-relaxed">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
+              <div>
+                <h3 className="font-semibold text-[#8399AE] text-lg mb-6 flex items-center gap-2">
+                  <XCircle className="h-5 w-5" /> This isn&apos;t for you if&hellip;
+                </h3>
+                <ul className="space-y-3">
+                  {notForYou.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <XCircle className="h-4 w-4 text-[#8399AE]/40 mt-0.5 shrink-0" />
+                      <span className="text-[#8399AE] text-sm leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -396,23 +378,23 @@ function Pricing() {
       name: "Free AI Audit",
       price: "$0",
       period: "",
-      desc: "See exactly what's automatable in your business — no strings attached.",
+      desc: "See exactly what\u2019s automatable in your business \u2014 no strings attached.",
       features: ["30-minute strategy call", "Full process mapping", "Automation opportunity report", "Zero commitment required"],
       cta: "Book Your Audit",
       highlight: false,
     },
     {
       name: "Build Sprint",
-      price: "$8K–$25K",
+      price: "$8K\u2013$25K",
       period: "one-time",
-      desc: "Your full custom AI OS, built and deployed in 4–8 weeks.",
+      desc: "Your full custom AI OS, built and deployed in 4\u20138 weeks.",
       features: ["Complete agentic OS build", "Email, CRM, content & more", "Integrations with your existing tools", "Testing, docs & handoff"],
       cta: "Get Started",
       highlight: true,
     },
     {
       name: "Retainer",
-      price: "$1.5K–$4K",
+      price: "$1.5K\u2013$4K",
       period: "/month",
       desc: "Ongoing optimization and new agent builds as your business grows.",
       features: ["System maintenance & monitoring", "New agent builds monthly", "Model & prompt optimization", "Priority support"],
@@ -422,75 +404,65 @@ function Pricing() {
   ];
 
   return (
-    <section id="pricing" className="py-16 px-6 bg-[#0D0D14]">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#F0F0FF] leading-tight mb-5">
-            What does it cost?
-            <br />
-            <span className="text-[#6C47FF]">Less than hiring.</span>
-          </h2>
-          <p className="text-[#A0A0BB] text-lg max-w-xl mx-auto leading-relaxed">
-            A full-time ops hire costs $60–80K/year — and still can&apos;t match what a
-            well-built AI OS does 24/7.
-          </p>
-        </div>
+    <section id="pricing" className="editorial-section">
+      <div className="max-w-7xl mx-auto px-6 py-20 md:py-32">
+        <div className="editorial-grid">
+          <div className="editorial-label">
+            <span className="section-number">06</span>
+            <span className="section-title">Pricing</span>
+          </div>
+          <div className="editorial-content">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#F5F0EB] leading-tight mb-4">
+              What does it cost?{" "}
+              <span className="text-[#6C47FF]">Less than hiring.</span>
+            </h2>
+            <p className="text-[#8399AE] mb-10 max-w-xl leading-relaxed">
+              A full-time ops hire costs $60\u201380K/year &mdash; and still can&apos;t match what a
+              well-built AI OS does 24/7.
+            </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-          {plans.map((p) => (
-            <Card
-              key={p.name}
-              className={`flex flex-col relative ${
-                p.highlight
-                  ? "border-[#6C47FF]/50 bg-[#6C47FF]/8"
-                  : "bg-[#13131A] border-[#1E1E2E]"
-              }`}
-            >
-              {p.highlight && (
-                <div className="absolute -top-3.5 inset-x-0 flex justify-center">
-                  <Badge className="bg-[#6C47FF] text-white text-xs px-3">
-                    Most Popular
-                  </Badge>
-                </div>
-              )}
-              <CardContent className="p-8 flex flex-col flex-1">
-                <div className="mb-6">
-                  <p className="text-xs text-[#A0A0BB] font-medium uppercase tracking-wider mb-3">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {plans.map((p) => (
+                <div
+                  key={p.name}
+                  className={`relative border-t-2 pt-6 ${
+                    p.highlight ? "border-t-[#6C47FF]" : "border-t-[#3C4C5C]"
+                  }`}
+                >
+                  <p className="text-xs text-[#8399AE] font-medium uppercase tracking-wider mb-3">
                     {p.name}
                   </p>
                   <div className="flex items-baseline gap-1 mb-2">
-                    <span className="text-3xl font-bold text-[#F0F0FF]">{p.price}</span>
+                    <span className="text-3xl font-bold text-[#F5F0EB]">{p.price}</span>
                     {p.period && (
-                      <span className="text-[#A0A0BB] text-sm">{p.period}</span>
+                      <span className="text-[#8399AE] text-sm">{p.period}</span>
                     )}
                   </div>
-                  <p className="text-[#A0A0BB] text-sm">{p.desc}</p>
-                </div>
+                  <p className="text-[#8399AE] text-sm mb-6">{p.desc}</p>
 
-                <ul className="space-y-2.5 flex-1 mb-8">
-                  {p.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2.5">
-                      <CheckCircle className="h-4 w-4 text-[#00C896] mt-0.5 shrink-0" />
-                      <span className="text-[#A0A0BB] text-sm">{f}</span>
-                    </li>
-                  ))}
-                </ul>
+                  <ul className="space-y-2.5 mb-8">
+                    {p.features.map((f) => (
+                      <li key={f} className="flex items-start gap-2.5">
+                        <CheckCircle className="h-4 w-4 text-[#00C896] mt-0.5 shrink-0" />
+                        <span className="text-[#8399AE] text-sm">{f}</span>
+                      </li>
+                    ))}
+                  </ul>
 
-                <Button
-                  asChild
-                  className={`w-full ${
-                    p.highlight
-                      ? "bg-[#6C47FF] hover:bg-[#7C5CFF] text-white violet-glow"
-                      : "bg-transparent border border-[#1E1E2E] text-[#F0F0FF] hover:border-[#6C47FF]/40 hover:bg-[#6C47FF]/5"
-                  } transition-all`}
-                >
-                  <a href="/contact">
-                    {p.cta} <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
+                  <a
+                    href="/contact"
+                    className={`inline-flex items-center gap-1.5 text-sm font-medium transition-colors ${
+                      p.highlight
+                        ? "bg-[#6C47FF] hover:bg-[#7C5CFF] text-white px-6 py-3 rounded-[2px]"
+                        : "text-[#F5F0EB] hover:text-[#FF6B47] underline underline-offset-4 decoration-[#3C4C5C]"
+                    }`}
+                  >
+                    {p.cta} <ArrowRight className="h-3.5 w-3.5" />
                   </a>
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -500,33 +472,25 @@ function Pricing() {
 /* ─────────────────────────────────────────── CTA */
 function FinalCTA() {
   return (
-    <section id="contact" className="relative py-24 px-6 overflow-hidden">
-      <div className="absolute inset-0 grid-bg opacity-50" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_50%_50%,rgba(108,71,255,0.06),transparent)]" />
-      <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-[#0D0D14] to-transparent" />
-      <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-[#0A0A0F] to-transparent" />
-
-      <div className="relative z-10 max-w-3xl mx-auto text-center">
+    <section id="contact" className="py-24 px-6">
+      <div className="max-w-3xl mx-auto text-center">
         <h2 className="text-4xl md:text-5xl font-bold leading-[1.1] tracking-tight mb-6">
-          <span className="text-[#F0F0FF]">What would you do with </span>
+          <span className="text-[#F5F0EB]">What would you do with </span>
           <span className="text-gradient">20 extra hours</span>
-          <span className="text-[#F0F0FF]"> a week?</span>
+          <span className="text-[#F5F0EB]"> a week?</span>
         </h2>
-        <p className="text-[#A0A0BB] text-lg leading-relaxed max-w-xl mx-auto mb-8">
+        <p className="text-[#8399AE] text-lg leading-relaxed max-w-xl mx-auto mb-8">
           Book a free 30-minute AI Audit. We&apos;ll map out exactly what&apos;s automatable
-          in your business — no pitch, no pressure, just clarity on what&apos;s possible.
+          in your business &mdash; no pitch, no pressure, just clarity on what&apos;s possible.
         </p>
-        <Button
-          asChild
-          size="lg"
-          className="bg-[#6C47FF] hover:bg-[#7C5CFF] text-white px-10 h-14 text-base violet-glow transition-all"
+        <a
+          href="mailto:hello@automationarchitects.ai"
+          className="inline-flex items-center gap-2 bg-[#6C47FF] hover:bg-[#7C5CFF] text-white px-10 py-4 text-base font-medium transition-colors rounded-[2px]"
         >
-          <a href="mailto:hello@automationarchitects.ai">
-            Book Your Free AI Audit <ArrowRight className="ml-2 h-5 w-5" />
-          </a>
-        </Button>
-        <p className="text-xs text-[#A0A0BB] mt-5">
-          No commitment · 30 minutes · Immediate value, guaranteed
+          Book Your Free AI Audit <ArrowRight className="h-5 w-5" />
+        </a>
+        <p className="text-xs text-[#8399AE] mt-5">
+          No commitment &middot; 30 minutes &middot; Immediate value, guaranteed
         </p>
       </div>
     </section>
@@ -535,37 +499,37 @@ function FinalCTA() {
 
 /* ─────────────────────────────────────────── BLOG TEASER */
 const BLOG_POSTS = [
-  { slug: "what-is-an-agentic-os", title: "What Is an Agentic OS for Business? (And Why It's Not a Chatbot)", excerpt: "The difference between a chatbot and a real AI operating system — and why it matters for your business.", readTime: "6 min read" },
-  { slug: "zapier-vs-make-vs-agentic-ai", title: "Zapier vs. Make vs. Agentic AI: What's Actually the Difference?", excerpt: "Rule-based workflows vs. intelligent agents. Here's when each makes sense — and when you've outgrown the simple tools.", readTime: "5 min read" },
+  { slug: "what-is-an-agentic-os", title: "What Is an Agentic OS for Business? (And Why It\u2019s Not a Chatbot)", excerpt: "The difference between a chatbot and a real AI operating system \u2014 and why it matters for your business.", readTime: "6 min read" },
+  { slug: "zapier-vs-make-vs-agentic-ai", title: "Zapier vs. Make vs. Agentic AI: What\u2019s Actually the Difference?", excerpt: "Rule-based workflows vs. intelligent agents. Here\u2019s when each makes sense \u2014 and when you\u2019ve outgrown the simple tools.", readTime: "5 min read" },
   { slug: "agency-automation-quick-wins", title: "5 Business Processes Every Agency Should Automate First", excerpt: "Lead follow-up, client reporting, invoicing, content scheduling, onboarding. Start here.", readTime: "5 min read" },
 ];
 
 function BlogTeaser() {
   return (
-    <section className="py-20 px-6 bg-[#0D0D14]">
-      <div className="max-w-6xl mx-auto">
+    <section className="editorial-section">
+      <div className="max-w-7xl mx-auto px-6 py-20 md:py-32">
         <div className="flex items-end justify-between mb-10">
           <div>
             <p className="text-xs uppercase tracking-widest text-[#6C47FF] mb-2 font-medium">From the blog</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#F0F0FF]">What we&apos;re thinking about</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#F5F0EB]">What we&apos;re thinking about</h2>
           </div>
-          <Link href="/blog" className="hidden md:inline-flex items-center gap-1.5 text-sm text-[#A0A0BB] hover:text-[#F0F0FF] transition-colors">
+          <Link href="/blog" className="hidden md:inline-flex items-center gap-1.5 text-sm text-[#8399AE] hover:text-[#F5F0EB] transition-colors">
             All posts <ArrowRight className="h-3.5 w-3.5" />
           </Link>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {BLOG_POSTS.map((post) => (
-            <Link key={post.slug} href={`/blog/${post.slug}`} className="group block bg-[#13131A] border border-[#1E1E2E] hover:border-[#6C47FF]/40 rounded-xl p-6 transition-all">
-              <p className="text-xs text-[#8888AA] mb-3">{post.readTime}</p>
-              <h3 className="text-[#F0F0FF] font-semibold leading-snug mb-3 group-hover:text-[#A090FF] transition-colors">{post.title}</h3>
-              <p className="text-sm text-[#8888AA] leading-relaxed mb-4">{post.excerpt}</p>
+            <Link key={post.slug} href={`/blog/${post.slug}`} className="group block border-t border-[#3C4C5C] pt-6 transition-all">
+              <p className="text-xs text-[#8399AE] mb-3">{post.readTime}</p>
+              <h3 className="text-[#F5F0EB] font-semibold leading-snug mb-3 group-hover:text-[#6C47FF] transition-colors">{post.title}</h3>
+              <p className="text-sm text-[#8399AE] leading-relaxed mb-4">{post.excerpt}</p>
               <span className="text-xs text-[#6C47FF] flex items-center gap-1">Read <ArrowRight className="h-3 w-3" /></span>
             </Link>
           ))}
         </div>
         <div className="mt-8 text-center md:hidden">
-          <Link href="/blog" className="text-sm text-[#A0A0BB] hover:text-[#F0F0FF] transition-colors">
-            All posts →
+          <Link href="/blog" className="text-sm text-[#8399AE] hover:text-[#F5F0EB] transition-colors">
+            All posts &rarr;
           </Link>
         </div>
       </div>
@@ -576,7 +540,7 @@ function BlogTeaser() {
 /* ─────────────────────────────────────────── PAGE */
 export default function Home() {
   return (
-    <main className="bg-[#0A0A0F]">
+    <main className="bg-[#252F3A]">
       <FaqSchema />
       <Hero />
       <Stats />
