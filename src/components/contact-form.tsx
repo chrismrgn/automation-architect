@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle } from "lucide-react";
 
 interface FormData {
@@ -41,10 +40,10 @@ export function ContactForm() {
         <div className="w-14 h-14 rounded-full bg-[#00C896]/10 flex items-center justify-center mb-5">
           <CheckCircle className="h-7 w-7 text-[#00C896]" />
         </div>
-        <h3 className="text-xl font-bold text-[#F0F0FF] mb-2">
+        <h3 className="text-xl font-bold text-[#F5F0EB] mb-2">
           Thanks! We&apos;ll be in touch within 24 hours.
         </h3>
-        <p className="text-sm text-[#A0A0BB]">
+        <p className="text-sm text-[#8399AE]">
           Keep an eye on your inbox.
         </p>
       </div>
@@ -52,8 +51,8 @@ export function ContactForm() {
   }
 
   const inputClasses =
-    "w-full bg-[#0A0A0F] border border-[#1E1E2E] text-[#F0F0FF] rounded-lg px-4 py-3 text-sm placeholder:text-[#8888AA] focus:border-[#6C47FF] focus:outline-none focus:ring-1 focus:ring-[#6C47FF]/30 transition-colors";
-  const labelClasses = "block text-sm text-[#A0A0BB] font-medium mb-2";
+    "w-full bg-[#252F3A] border border-[#3C4C5C] text-[#F5F0EB] px-4 py-3 text-sm placeholder:text-[#8399AE] focus:border-[#6C47FF] focus:outline-none focus:ring-1 focus:ring-[#6C47FF]/30 transition-colors";
+  const labelClasses = "block text-sm text-[#8399AE] font-medium mb-2";
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
@@ -116,9 +115,9 @@ export function ContactForm() {
           className={inputClasses}
         >
           <option value="">Select team size</option>
-          <option value="1-5">1–5</option>
-          <option value="6-15">6–15</option>
-          <option value="16-50">16–50</option>
+          <option value="1-5">1&ndash;5</option>
+          <option value="6-15">6&ndash;15</option>
+          <option value="16-50">16&ndash;50</option>
           <option value="50+">50+</option>
         </select>
       </div>
@@ -138,12 +137,12 @@ export function ContactForm() {
         />
       </div>
 
-      <Button
+      <button
         type="submit"
-        className="w-full bg-[#6C47FF] hover:bg-[#7C5CFF] text-white h-12 text-sm font-medium violet-glow transition-all"
+        className="w-full bg-[#6C47FF] hover:bg-[#7C5CFF] text-white h-12 text-sm font-medium transition-colors rounded-[2px] inline-flex items-center justify-center gap-2"
       >
-        Send Message <ArrowRight className="ml-2 h-4 w-4" />
-      </Button>
+        Send Message <ArrowRight className="h-4 w-4" />
+      </button>
     </form>
   );
 }

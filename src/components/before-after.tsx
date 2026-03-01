@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { Clock, AlertTriangle, CheckCircle, Zap } from "lucide-react";
+import { AlertTriangle, Zap } from "lucide-react";
 
 /* ── Types ─────────────────────────────────────────────── */
 
@@ -146,9 +146,9 @@ function FlowList({
   return (
     <div
       className={cn(
-        "rounded-xl border p-6 flex flex-col",
+        "border p-6 flex flex-col",
         isBefore
-          ? "bg-[#13131A] border-[#1E1E2E]"
+          ? "bg-[#2E3B47] border-[#3C4C5C]"
           : "bg-[#00C896]/5 border-[#00C896]/20"
       )}
     >
@@ -194,8 +194,8 @@ function FlowList({
               className={cn(
                 "text-sm leading-relaxed pb-3",
                 isBefore
-                  ? "font-mono text-[#8888AA]"
-                  : "text-[#F0F0FF]"
+                  ? "font-mono text-[#8399AE]"
+                  : "text-[#F5F0EB]"
               )}
             >
               {step.text}
@@ -208,12 +208,12 @@ function FlowList({
       <div
         className={cn(
           "mt-4 pt-4 border-t flex gap-6",
-          isBefore ? "border-[#1E1E2E]" : "border-[#00C896]/20"
+          isBefore ? "border-[#3C4C5C]" : "border-[#00C896]/20"
         )}
       >
         {metrics.map((m) => (
           <div key={m.label}>
-            <div className="text-xs text-[#8888AA] mb-0.5">{m.label}</div>
+            <div className="text-xs text-[#8399AE] mb-0.5">{m.label}</div>
             <div
               className={cn(
                 "text-sm font-semibold",
@@ -236,14 +236,14 @@ export function BeforeAfter() {
   const currentTab = tabs.find((t) => t.id === activeTab) ?? tabs[0];
 
   return (
-    <section className="py-20 px-6">
+    <section className="py-20 px-6 border-t border-[#3C4C5C]">
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#F0F0FF] leading-tight mb-5">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#F5F0EB] leading-tight mb-5">
             Before vs. After
           </h2>
-          <p className="text-[#A0A0BB] text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-[#8399AE] text-lg max-w-2xl mx-auto leading-relaxed">
             Here&apos;s what the same workflow looks like before and after we
             build your agentic OS.
           </p>
@@ -251,16 +251,16 @@ export function BeforeAfter() {
 
         {/* Tab Selector */}
         <div className="flex justify-center mb-10">
-          <div className="inline-flex rounded-lg border border-[#1E1E2E] bg-[#13131A] p-1 gap-1">
+          <div className="inline-flex border border-[#3C4C5C] bg-[#2E3B47] p-1 gap-1">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 className={cn(
-                  "px-4 py-2 rounded-md text-sm font-medium transition-all",
+                  "px-4 py-2 text-sm font-medium transition-all",
                   activeTab === tab.id
                     ? "bg-[#6C47FF] text-white"
-                    : "text-[#A0A0BB] hover:text-[#F0F0FF] hover:bg-[#1E1E2E]/60"
+                    : "text-[#8399AE] hover:text-[#F5F0EB] hover:bg-[#3C4C5C]/60"
                 )}
               >
                 {tab.label}
