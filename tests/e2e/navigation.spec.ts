@@ -24,7 +24,7 @@ test.describe("Navigation — nav links", () => {
     page,
   }) => {
     await page
-      .getByRole("link", { name: /Book Free Audit/i })
+      .getByRole("link", { name: /Book Audit/i })
       .first()
       .click();
     await expect(page).toHaveURL("/contact");
