@@ -39,19 +39,19 @@ export function ContactFaq() {
       {faqs.map((faq, index) => (
         <div
           key={faq.question}
-          className="border border-[#1E1E2E] rounded-lg overflow-hidden bg-[#13131A] transition-colors"
+          className="border border-[#3C4C5C] overflow-hidden bg-[#2E3B47] transition-colors"
         >
           <button
             type="button"
             onClick={() => toggle(index)}
             className="w-full flex items-center justify-between px-6 py-4 text-left"
           >
-            <span className="text-[#F0F0FF] text-sm font-medium pr-4">
+            <span className="text-[#F5F0EB] text-sm font-medium pr-4">
               {faq.question}
             </span>
             <ChevronDown
               className={cn(
-                "h-4 w-4 text-[#A0A0BB] shrink-0 transition-transform duration-200",
+                "h-4 w-4 text-[#8399AE] shrink-0 transition-transform duration-200",
                 openIndex === index && "rotate-180"
               )}
             />
@@ -65,7 +65,7 @@ export function ContactFaq() {
             )}
           >
             <div className="overflow-hidden">
-              <p className="px-6 pb-4 text-sm text-[#A0A0BB] leading-relaxed">
+              <p className="px-6 pb-4 text-sm text-[#8399AE] leading-relaxed">
                 {faq.answer}
               </p>
             </div>

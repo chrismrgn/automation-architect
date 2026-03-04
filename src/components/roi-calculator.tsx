@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Slider } from "@/components/ui/slider";
-import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 const savingsRate: Record<string, number> = {
@@ -81,7 +80,7 @@ function formatCurrency(n: number): string {
 }
 
 const selectClasses =
-  "w-full rounded-lg border border-[#1E1E2E] bg-[#13131A] text-[#F0F0FF] px-4 py-3 text-sm focus:outline-none focus:border-[#6C47FF]/50 appearance-none cursor-pointer";
+  "w-full border border-[#3C4C5C] bg-[#2E3B47] text-[#F5F0EB] px-4 py-3 text-sm focus:outline-none focus:border-[#6C47FF]/50 appearance-none cursor-pointer";
 
 export function ROICalculator() {
   const [hoursPerWeek, setHoursPerWeek] = useState(10);
@@ -102,24 +101,24 @@ export function ROICalculator() {
   );
 
   return (
-    <section id="roi" className="py-16 px-6 bg-[#0D0D14]">
+    <section id="roi" className="py-16 px-6 border-t border-[#3C4C5C]">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#F0F0FF] leading-tight mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#F5F0EB] leading-tight mb-4">
             See what automation
             <br />
             <span className="text-gradient">could save you.</span>
           </h2>
-          <p className="text-[#8888AA] text-lg">
+          <p className="text-[#8399AE] text-lg">
             Adjust the inputs below to estimate your potential savings.
           </p>
         </div>
 
-        <div className="rounded-2xl border border-[#1E1E2E] bg-[#13131A] p-8 mb-8">
+        <div className="border border-[#3C4C5C] bg-[#2E3B47] p-8 mb-8">
           {/* Inputs */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             <div>
-              <label className="block text-sm text-[#A0A0BB] mb-2">
+              <label className="block text-sm text-[#8399AE] mb-2">
                 Team size
               </label>
               <select
@@ -137,7 +136,7 @@ export function ROICalculator() {
             </div>
 
             <div>
-              <label className="block text-sm text-[#A0A0BB] mb-2">
+              <label className="block text-sm text-[#8399AE] mb-2">
                 Primary pain area
               </label>
               <select
@@ -155,7 +154,7 @@ export function ROICalculator() {
             </div>
 
             <div>
-              <label className="block text-sm text-[#A0A0BB] mb-2">
+              <label className="block text-sm text-[#8399AE] mb-2">
                 Average employee hourly cost
               </label>
               <select
@@ -173,9 +172,9 @@ export function ROICalculator() {
             </div>
 
             <div>
-              <label className="block text-sm text-[#A0A0BB] mb-2">
+              <label className="block text-sm text-[#8399AE] mb-2">
                 Hours your team spends on this per week:{" "}
-                <span className="text-[#F0F0FF] font-semibold">
+                <span className="text-[#F5F0EB] font-semibold">
                   {hoursPerWeek} hrs
                 </span>
               </label>
@@ -189,7 +188,7 @@ export function ROICalculator() {
                   data-testid="hours-slider"
                 />
               </div>
-              <div className="flex justify-between text-xs text-[#8888AA] mt-1">
+              <div className="flex justify-between text-xs text-[#8399AE] mt-1">
                 <span>1 hr</span>
                 <span>40 hrs</span>
               </div>
@@ -198,10 +197,10 @@ export function ROICalculator() {
 
           {/* Results */}
           <div
-            className="rounded-xl border border-[#6C47FF]/20 bg-[#6C47FF]/5 p-8"
+            className="border-t-2 border-t-[#6C47FF] bg-[#6C47FF]/5 p-8"
             data-testid="roi-results"
           >
-            <p className="text-sm text-[#A0A0BB] mb-4">You could save:</p>
+            <p className="text-sm text-[#8399AE] mb-4">You could save:</p>
             <div
               className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center"
               style={{ fontVariantNumeric: "tabular-nums" }}
@@ -213,7 +212,7 @@ export function ROICalculator() {
                 >
                   {formatCurrency(animatedMonthly)}
                 </div>
-                <div className="text-sm text-[#A0A0BB] mt-1">per month</div>
+                <div className="text-sm text-[#8399AE] mt-1">per month</div>
               </div>
               <div>
                 <div
@@ -222,7 +221,7 @@ export function ROICalculator() {
                 >
                   {formatCurrency(animatedAnnual)}
                 </div>
-                <div className="text-sm text-[#A0A0BB] mt-1">per year</div>
+                <div className="text-sm text-[#8399AE] mt-1">per year</div>
               </div>
               <div>
                 <div
@@ -231,16 +230,16 @@ export function ROICalculator() {
                 >
                   ~{(animatedHours / 10).toFixed(1)}
                 </div>
-                <div className="text-sm text-[#A0A0BB] mt-1">hrs/week saved</div>
+                <div className="text-sm text-[#8399AE] mt-1">hrs/week saved</div>
               </div>
               <div>
                 <div
-                  className="text-2xl md:text-3xl font-bold text-[#00D4FF]"
+                  className="text-2xl md:text-3xl font-bold text-[#FF6B47]"
                   data-testid="payback-period"
                 >
                   {paybackMonths < 1 ? "<1" : paybackMonths.toFixed(1)}
                 </div>
-                <div className="text-sm text-[#A0A0BB] mt-1">month payback</div>
+                <div className="text-sm text-[#8399AE] mt-1">month payback</div>
               </div>
             </div>
           </div>
@@ -248,17 +247,13 @@ export function ROICalculator() {
 
         {/* CTA */}
         <div className="text-center">
-          <Button
-            asChild
-            size="lg"
-            className="bg-[#6C47FF] hover:bg-[#7C5CFF] text-white px-8 h-12 text-base violet-glow transition-all"
+          <a
+            href="/contact"
+            className="inline-flex items-center gap-2 bg-[#6C47FF] hover:bg-[#7C5CFF] text-white px-8 py-4 text-base font-medium transition-colors rounded-[2px]"
           >
-            <a href="/contact">
-              Book Your Free Audit to Confirm{" "}
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </a>
-          </Button>
-          <p className="text-xs text-[#8888AA] mt-4">
+            Book Your Free Audit to Confirm <ArrowRight className="h-4 w-4" />
+          </a>
+          <p className="text-xs text-[#8399AE] mt-4">
             Estimates based on industry averages. Your actual results depend on
             your specific workflows.
           </p>

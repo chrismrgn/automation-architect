@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Lora } from "next/font/google";
 import "./globals.css";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
@@ -7,6 +7,13 @@ import { Footer } from "@/components/footer";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+const lora = Lora({
+  subsets: ["latin"],
+  variable: "--font-lora",
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -28,10 +35,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${inter.variable} ${lora.variable}`}>
       <body>
         <style>{`html { scroll-padding-top: 80px; }`}</style>
-        <div className="bg-[#0A0A0F] min-h-screen">
+        <div className="bg-[#252F3A] min-h-screen">
           <Nav />
           {children}
           <Footer />
